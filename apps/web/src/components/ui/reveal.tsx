@@ -26,7 +26,7 @@ export function RevealLines({ text, className, delay = 0 }: { text: string; clas
   return (
     <span className={className}>
       {text.split("\n").map((line, i) => (
-        <span key={i} className="block overflow-hidden pb-[0.12em] -mb-[0.12em]">
+        <span key={i} className="block overflow-hidden pb-[0.24em] -mb-[0.24em]">
           <motion.span
             className="block"
             initial={{ y: "105%" }}

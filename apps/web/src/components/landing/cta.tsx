@@ -18,7 +18,7 @@ export function Cta({ loggedIn }: { loggedIn: boolean }) {
           <Reveal className="flex justify-center">
             <LogoMark className="size-14" />
           </Reveal>
-          <h2 className="mt-8 text-[clamp(2.6rem,8vw,5.5rem)] leading-[0.95] font-semibold tracking-[-0.055em] text-ink">
+          <h2 className="mt-8 text-[clamp(2.4rem,6vw,4.5rem)] leading-[0.95] font-semibold tracking-[-0.055em] text-ink">
             <RevealLines text={t("landing.cta.title")} />
           </h2>
           <Reveal delay={0.2}>

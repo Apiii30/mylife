@@ -14,7 +14,7 @@ import { HeroFloaters } from "./hero-floaters";
 
 function Line({ children, delay, className }: { children: React.ReactNode; delay: number; className?: string }) {
   return (
-    <span className="block overflow-hidden pb-[0.14em] -mb-[0.14em]">
+    <span className="block overflow-hidden pb-[0.24em] -mb-[0.24em]">
       <motion.span
         className={cn("block", className)}
         initial={{ y: "108%", rotate: 2, filter: "blur(12px)" }}
@@ -51,7 +51,7 @@ export function Hero({ loggedIn }: { loggedIn: boolean }) {
   useMotionValueEvent(scrollYProgress, "change", (v) => setPast(v > 0.5));
 
   return (
-    <section ref={ref} className="relative isolate overflow-hidden pt-32 sm:pt-40">
+    <section ref={ref} className="relative isolate overflow-hidden pt-28 sm:pt-32">
       <HeroFloaters />
 
       <motion.div style={{ y: titleY, scale: titleScale, opacity: titleOpacity, filter: desktop ? titleBlur : undefined }} className="relative mx-auto max-w-6xl px-4 text-center will-change-transform sm:px-6">
@@ -62,7 +62,8 @@ export function Hero({ loggedIn }: { loggedIn: boolean }) {
           </span>
         </motion.div>
 
-        <h1 className="mt-7 text-[clamp(3.1rem,11vw,8.5rem)] leading-[0.9] font-semibold tracking-[-0.055em] text-balance text-ink">
+        {/* Ukuran mengikuti lebar & tinggi layar agar judul + tombol selalu muat di layar pertama */}
+        <h1 className="mt-6 text-[clamp(2.75rem,min(6.4vw,10.5svh),6rem)] leading-[0.95] font-semibold tracking-[-0.05em] text-balance text-ink">
           <Line delay={0.3}>{t("line1")}</Line>
           <Line delay={0.42} className={cn("text-gradient-life animate-shimmer", (past || reduce) && "[animation-play-state:paused]")}>
             {t("line2")}
@@ -71,12 +72,12 @@ export function Hero({ loggedIn }: { loggedIn: boolean }) {
 
         <motion.p
           {...fadeUp(0.75)}
-          className="mx-auto mt-7 max-w-xl text-[clamp(1.05rem,2.2vw,1.3rem)] leading-relaxed tracking-[-0.01em] text-balance text-muted"
+          className="mx-auto mt-6 max-w-xl text-[clamp(1.05rem,1.8vw,1.25rem)] leading-relaxed tracking-[-0.01em] text-balance text-muted"
         >
           {t("subtitle")}
         </motion.p>
 
-        <motion.div {...fadeUp(0.9)} className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <motion.div {...fadeUp(0.9)} className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <ButtonLink href={loggedIn ? "/dashboard" : "/register"} size="lg" className="group w-full sm:w-auto">
             {t("primary")}
             <ArrowRight className="size-4 transition-transform duration-500 ease-out-expo group-hover:translate-x-1" />

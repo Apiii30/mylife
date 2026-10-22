@@ -91,7 +91,7 @@ export function Features() {
         <Reveal>
           <p className="text-[15px] font-semibold text-accent">{t("eyebrow")}</p>
         </Reveal>
-        <h2 className="mt-3 text-[clamp(2.6rem,7vw,5rem)] leading-[0.95] font-semibold tracking-[-0.05em] text-ink">
+        <h2 className="mt-3 text-[clamp(2.4rem,5.5vw,4.25rem)] leading-[0.95] font-semibold tracking-[-0.05em] text-ink">
           <RevealLines text={t("title")} delay={0.05} />
         </h2>
         <Reveal delay={0.2}>

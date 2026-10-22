@@ -45,14 +45,15 @@ export function HeroFloaters() {
   }, [reduce, px, py]);
 
   const floaters: Floater[] = [
-    { icon: TrendingUp, color: "var(--c-finance)", label: t("income"), value: `+${money(6_500_000)}`, className: "top-[18%] left-[3%]", depth: 1.1, rotate: -6 },
-    { icon: Check, color: "var(--c-tasks)", label: t("task"), value: t("taskValue"), className: "top-[54%] left-[7%]", depth: 0.6, rotate: 4 },
-    { icon: Flame, color: "var(--c-journal)", label: t("streak"), value: t("streakValue"), className: "top-[16%] right-[4%]", depth: 0.8, rotate: 5 },
-    { icon: GraduationCap, color: "var(--c-grades)", label: t("gpa"), value: "3.67", className: "top-[52%] right-[6%]", depth: 1.3, rotate: -4 },
+    { icon: TrendingUp, color: "var(--c-finance)", label: t("income"), value: `+${money(6_500_000)}`, className: "top-[22%] left-[3%]", depth: 1.1, rotate: -6 },
+    { icon: Check, color: "var(--c-tasks)", label: t("task"), value: t("taskValue"), className: "top-[62%] left-[6%]", depth: 0.6, rotate: 4 },
+    { icon: Flame, color: "var(--c-journal)", label: t("streak"), value: t("streakValue"), className: "top-[19%] right-[4%]", depth: 0.8, rotate: 5 },
+    { icon: GraduationCap, color: "var(--c-grades)", label: t("gpa"), value: "3.67", className: "top-[58%] right-[5%]", depth: 1.3, rotate: -4 },
   ];
 
   return (
-    <div ref={ref} aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
+    // Hanya menutupi area judul (bukan preview dashboard di bawahnya), dan hanya di layar lebar agar tidak menabrak judul
+    <div ref={ref} aria-hidden className="pointer-events-none absolute inset-x-0 top-0 hidden h-[min(100svh,880px)] xl:block">
       {floaters.map((f, i) => (
         <FloatCard key={f.label} floater={f} index={i} scrollY={scrollY} x={x} y={y} still={Boolean(reduce)} bob={live} />
       ))}
