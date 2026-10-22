@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import { Router } from "express";
-import rateLimit from "express-rate-limit";
+import { rateLimit } from "express-rate-limit";
 import { z } from "zod";
 import { assertCloudinary, deliveryUrl, destroyImages, userFolder, verifyUpload } from "../../lib/cloudinary.js";
 import { badRequest, forbidden } from "../../lib/http-error.js";

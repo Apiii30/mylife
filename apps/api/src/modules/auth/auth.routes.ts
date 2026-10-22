@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import { Router } from "express";
-import rateLimit, { ipKeyGenerator } from "express-rate-limit";
+import { ipKeyGenerator, rateLimit } from "express-rate-limit";
 import { conflict, unauthorized } from "../../lib/http-error.js";
 import { signAccessToken } from "../../lib/jwt.js";
 import { prisma } from "../../lib/prisma.js";

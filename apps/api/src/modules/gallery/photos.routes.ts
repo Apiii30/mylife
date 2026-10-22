@@ -1,5 +1,5 @@
 import { Router } from "express";
-import rateLimit from "express-rate-limit";
+import { rateLimit } from "express-rate-limit";
 import { z } from "zod";
 import { env } from "../../config/env.js";
 import type { Prisma } from "../../generated/prisma/client.js";

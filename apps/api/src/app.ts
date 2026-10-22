@@ -1,6 +1,6 @@
 import cors from "cors";
 import express from "express";
-import helmet from "helmet";
+import helmetImport from "helmet";
 import { allowedOrigins } from "./config/env.js";
 import { errorHandler, notFoundHandler } from "./middleware/error.js";
 import { authRouter } from "./modules/auth/auth.routes.js";
@@ -16,6 +16,9 @@ import { searchRouter } from "./modules/search/search.routes.js";
 import { tasksRouter } from "./modules/tasks/tasks.routes.js";
 import { transactionsRouter } from "./modules/transactions/transactions.routes.js";
 import { usersRouter } from "./modules/users/users.routes.js";
+
+// Type-check builder Vercel membaca tipe CommonJS helmet (default = seluruh modul); saat runtime ini selalu fungsi helmet
+const helmet = helmetImport as unknown as typeof import("helmet").default;
 
 const app = express();
 
