@@ -170,7 +170,8 @@ goalsRouter.post("/:id/deposits", async (req, res) => {
         })
       : null;
     await tx.goalDeposit.create({ data: { goalId: goal.id, amount: data.amount, date, note, transactionId: transaction?.id } });
-  });
+    // Batas bawaan (2 dtk menunggu koneksi, 5 dtk total) terlalu ketat untuk database serverless yang sedang "bangun"
+  }, { maxWait: 10_000, timeout: 15_000 });
   await syncGoalStatus(goal.id);
   res.status(201).json({ goal: await loadGoal(goal.id) });
 });

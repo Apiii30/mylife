@@ -1,9 +1,9 @@
 // Akun demo "Hafidz" berisi data lengkap (semua modul kecuali Memories).
-// Pakai: node apps/api/scripts/seed-demo.mjs [API_URL] [EMAIL] [PASSWORD]
+// Pakai: node apps/api/scripts/seed-demo.mjs [API_URL] [EMAIL] [PASSWORD] [--reset]
+//   --reset  hapus dulu akun dengan email itu (mis. sisa percobaan yang gagal di tengah), lalu buat ulang
 // Semua data dikirim lewat API publik (sama seperti dari aplikasi), jadi aman dipakai ke server lokal maupun online.
-const API = process.argv[2] ?? "http://localhost:4000";
-const EMAIL = process.argv[3] ?? "hafidz@demo.test";
-const PASSWORD = process.argv[4] ?? "hafidz123";
+const RESET = process.argv.includes("--reset");
+const [API = "http://localhost:4000", EMAIL = "hafidz@demo.test", PASSWORD = "hafidz123"] = process.argv.slice(2).filter((a) => a !== "--reset");
 const TODAY = "2026-10-22";
 
 // PRNG deterministik agar hasil bisa diulang
@@ -14,27 +14,44 @@ const pick = (arr) => arr[Math.floor(rand() * arr.length)];
 const pad = (n) => String(n).padStart(2, "0");
 const ymd = (y, m, d) => `${y}-${pad(m)}-${pad(d)}`;
 const at = (date, time) => new Date(`${date}T${time}:00+07:00`).toISOString();
-const addDays = (date, n) => {
-  const d = new Date(`${date}T00:00:00Z`);
-  d.setUTCDate(d.getUTCDate() + n);
-  return d.toISOString().slice(0, 10);
-};
 
 // ─── Akun ──────────────────────────────────────────────────
+const json = { "content-type": "application/json" };
+const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+if (RESET) {
+  const login = await fetch(`${API}/auth/login`, { method: "POST", headers: json, body: JSON.stringify({ email: EMAIL, password: PASSWORD }) }).then((r) => r.json());
+  if (login.accessToken) {
+    const r = await fetch(`${API}/users/me`, { method: "DELETE", headers: { ...json, authorization: `Bearer ${login.accessToken}` }, body: JSON.stringify({ email: EMAIL }) });
+    console.log(r.ok ? `Akun lama ${EMAIL} dihapus.` : `Gagal menghapus akun lama (${r.status}).`);
+  }
+}
+
 const reg = await fetch(`${API}/auth/register`, {
   method: "POST",
-  headers: { "content-type": "application/json" },
+  headers: json,
   body: JSON.stringify({ name: "Hafidz", email: EMAIL, password: PASSWORD, locale: "id" }),
 }).then((r) => r.json());
-if (!reg.accessToken) throw new Error("Register gagal: " + JSON.stringify(reg));
-const H = { "content-type": "application/json", authorization: `Bearer ${reg.accessToken}` };
+if (!reg.accessToken) {
+  const hint = reg.error?.code === "EMAIL_TAKEN" ? "\nEmail sudah terdaftar — jalankan ulang dengan --reset untuk menghapus akun lama lalu membuat ulang." : "";
+  throw new Error("Register gagal: " + JSON.stringify(reg) + hint);
+}
+const H = { ...json, authorization: `Bearer ${reg.accessToken}` };
 let calls = 0;
 const send = async (method, path, body) => {
   calls++;
-  const r = await fetch(API + path, { method, headers: H, body: body && JSON.stringify(body) });
-  const data = await r.json().catch(() => ({}));
-  if (!r.ok) throw new Error(`${method} ${path} → ${r.status} ${JSON.stringify(data)}`);
-  return data;
+  // Server serverless sesekali gagal saat "bangun" (5xx / koneksi putus) → coba lagi sampai 3 kali
+  for (let attempt = 1; ; attempt++) {
+    try {
+      const r = await fetch(API + path, { method, headers: H, body: body && JSON.stringify(body) });
+      const data = await r.json().catch(() => ({}));
+      if (r.ok) return data;
+      if (r.status < 500 || attempt === 3) throw new Error(`${method} ${path} → ${r.status} ${JSON.stringify(data)}`);
+    } catch (error) {
+      if (attempt === 3 || String(error.message).includes(" → 4")) throw error;
+    }
+    await wait(1000 * attempt);
+  }
 };
 const post = (p, b) => send("POST", p, b);
 const patch = (p, b) => send("PATCH", p, b);
