@@ -6,6 +6,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { CountUp } from "@/components/ui/count-up";
 import { EASE_OUT_EXPO } from "@/components/ui/reveal";
+import { useLive } from "@/hooks/use-live";
+import { useMeasuredWidth } from "@/hooks/use-measure";
 import { cn } from "@/lib/cn";
 import { demoMoney } from "@/lib/format";
 
@@ -143,6 +145,7 @@ const DOTS: Record<number, string> = {
 export function CalendarVisual() {
   const t = useTranslations("landing.features.calendar");
   const [ref, inView] = useOnceInView<HTMLDivElement>();
+  const live = useLive(ref);
   const weekdays = t("weekdays").split(",");
 
   return (
@@ -170,8 +173,8 @@ export function CalendarVisual() {
               <>
                 <motion.span
                   className="absolute inset-0 rounded-full bg-calendar"
-                  animate={inView ? { scale: [1, 1.7], opacity: [0.35, 0] } : undefined}
-                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut", delay: 1 }}
+                  animate={inView && live ? { scale: [1, 1.7], opacity: [0.35, 0] } : { scale: 1, opacity: 0 }}
+                  transition={inView && live ? { duration: 1.8, repeat: Infinity, ease: "easeOut", delay: 1 } : { duration: 0 }}
                 />
                 <span className="absolute inset-0 rounded-full bg-calendar" />
               </>
@@ -201,6 +204,7 @@ const MOODS = [Laugh, Smile, Meh, Frown, Angry];
 export function JournalVisual() {
   const t = useTranslations("landing.features.journal");
   const [ref, inView] = useOnceInView<HTMLDivElement>();
+  const live = useLive(ref);
   const text = t("entry");
   const [count, setCount] = useState(0);
 
@@ -235,8 +239,8 @@ export function JournalVisual() {
         <motion.span
           aria-hidden
           className="ml-0.5 inline-block h-[1.1em] w-[2px] translate-y-[3px] bg-journal"
-          animate={{ opacity: [1, 0] }}
-          transition={{ duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
+          animate={live ? { opacity: [1, 0] } : { opacity: 1 }}
+          transition={live ? { duration: 0.6, repeat: Infinity, repeatType: "reverse" } : { duration: 0 }}
         />
       </p>
     </div>
@@ -254,6 +258,7 @@ const GOAL_BARS = [
 export function GoalsVisual() {
   const t = useTranslations("landing.features.goals");
   const [ref, inView] = useOnceInView<HTMLDivElement>();
+  const live = useLive(ref);
   const goals = t("items")
     .split(",")
     .map((label, i) => ({ label, ...GOAL_BARS[i] }));
@@ -275,7 +280,12 @@ export function GoalsVisual() {
               transition={{ duration: 1.6, ease: EASE_OUT_EXPO, delay: 0.2 + i * 0.12 }}
             >
               {/* Kilau cair yang mengalir */}
-              <span className="animate-shimmer absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgb(255_255_255/0.45)_50%,transparent_75%)] bg-[length:200%_100%]" />
+              <span
+                className={cn(
+                  "animate-shimmer absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgb(255_255_255/0.45)_50%,transparent_75%)] bg-[length:200%_100%]",
+                  !live && "[animation-play-state:paused]",
+                )}
+              />
             </motion.div>
           </div>
         </div>
@@ -408,33 +418,43 @@ const photoVariants: Variants = {
   spread: (i: number) => ({ ...PHOTOS[i].spread, opacity: 1, scale: 1.04 }),
 };
 
+/** Ukuran kipas foto saat terbuka — dikecilkan proporsional agar selalu muat di lebar kartu. */
+const FAN_WIDTH = 680;
+const FAN_HEIGHT = 288;
+
 export function GalleryVisual() {
+  const [measure, width] = useMeasuredWidth<HTMLDivElement>();
+  const scale = width ? Math.min(1, width / FAN_WIDTH) : 1;
+
   return (
-    <motion.div
-      className="relative mx-auto flex h-64 w-full max-w-[720px] items-center justify-center max-sm:scale-[0.62] sm:h-72"
-      initial="stack"
-      whileInView="fan"
-      whileHover="spread"
-      viewport={{ once: true, margin: "-15% 0px" }}
-    >
-      {PHOTOS.map((photo, i) => (
-        <motion.figure
-          key={photo.caption}
-          custom={i}
-          variants={photoVariants}
-          transition={{ type: "spring", stiffness: 140, damping: 18, delay: i * 0.04 }}
-          className="absolute w-40 rounded-[14px] bg-white p-2 pb-0 shadow-[0_1px_2px_rgb(0_0_0/0.08),0_20px_40px_-16px_rgb(0_0_0/0.35)] sm:w-44"
-          style={{ zIndex: i === 2 ? 5 : 5 - Math.abs(i - 2) }}
-        >
-          <div className="aspect-[5/4] overflow-hidden rounded-[8px]">
-            <Scene kind={i} />
-          </div>
-          <figcaption className="py-2 text-center font-mono text-[10px] tracking-wide text-neutral-500">
-            {photo.caption}
-          </figcaption>
-        </motion.figure>
-      ))}
-    </motion.div>
+    <div ref={measure} className="relative w-full" style={{ height: FAN_HEIGHT * scale }}>
+      <motion.div
+        className="absolute top-0 left-1/2 flex items-center justify-center"
+        style={{ width: FAN_WIDTH, height: FAN_HEIGHT, x: "-50%", scale, originY: 0 }}
+        initial="stack"
+        whileInView="fan"
+        whileHover="spread"
+        viewport={{ once: true, margin: "-15% 0px" }}
+      >
+        {PHOTOS.map((photo, i) => (
+          <motion.figure
+            key={photo.caption}
+            custom={i}
+            variants={photoVariants}
+            transition={{ type: "spring", stiffness: 140, damping: 18, delay: i * 0.04 }}
+            className="absolute w-44 rounded-[14px] bg-white p-2 pb-0 shadow-[0_1px_2px_rgb(0_0_0/0.08),0_20px_40px_-16px_rgb(0_0_0/0.35)]"
+            style={{ zIndex: i === 2 ? 5 : 5 - Math.abs(i - 2) }}
+          >
+            <div className="aspect-[5/4] overflow-hidden rounded-[8px]">
+              <Scene kind={i} />
+            </div>
+            <figcaption className="py-2 text-center font-mono text-[10px] tracking-wide text-neutral-500">
+              {photo.caption}
+            </figcaption>
+          </motion.figure>
+        ))}
+      </motion.div>
+    </div>
   );
 }
 

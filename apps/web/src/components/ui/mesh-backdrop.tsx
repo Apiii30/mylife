@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from "motion/react";
 import { useEffect } from "react";
+import { softGlow } from "@/lib/glow";
 
 /**
  * Latar "mesh" lavender: gumpalan warna yang di-blur, bergerak parallax.
@@ -40,8 +41,8 @@ export function MeshBackdrop() {
           <Blob key={i} blob={blob} scrollY={scrollY} x={x} y={y} still={Boolean(reduce)} />
         ))}
       </div>
-      {/* Butiran halus agar gradien tidak "banding" & terasa seperti kaca buram */}
-      <div className="absolute inset-0 opacity-[0.035] mix-blend-overlay [background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22160%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%222%22/></filter><rect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/></svg>')]" />
+      {/* Butiran halus agar gradien tidak "banding" & terasa seperti kaca buram (tanpa blend mode: jauh lebih ringan saat scroll) */}
+      <div className="absolute inset-0 opacity-[0.022] [background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22160%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%222%22/></filter><rect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/></svg>')]" />
     </div>
   );
 }
@@ -64,10 +65,11 @@ function Blob({
   const ty = useTransform([y, scrollShift], ([py, s]: number[]) => (still ? 0 : py * 30 * blob.depth + s));
 
   return (
-    <motion.div className="absolute" style={{ top: blob.top, left: blob.left, width: blob.size, height: blob.size, x: tx, y: ty }}>
+    <motion.div className="absolute will-change-transform" style={{ top: blob.top, left: blob.left, width: blob.size, height: blob.size, x: tx, y: ty }}>
+      {/* Gradien berlapis menggantikan filter blur — tampak sama lembut, tanpa biaya blur ulang tiap frame */}
       <div
-        className={`${still ? "" : blob.drift} size-full rounded-full blur-[70px]`}
-        style={{ background: `radial-gradient(circle at center, ${blob.color}, transparent 66%)` }}
+        className={`${still ? "" : blob.drift} size-full will-change-transform`}
+        style={{ background: softGlow(blob.color, 70) }}
       />
     </motion.div>
   );

@@ -28,10 +28,11 @@ export function AuthCard({ children }: { children: React.ReactNode }) {
       <header className="flex items-center justify-between p-4 sm:p-6">
         <Link
           href="/"
-          className="glass flex h-10 items-center gap-1.5 rounded-full pr-4 pl-3 text-[13px] font-medium text-ink-2 transition-colors hover:text-ink"
+          className="glass flex h-10 items-center gap-1.5 rounded-full pr-4 pl-3 text-[13px] font-medium whitespace-nowrap text-ink-2 transition-colors hover:text-ink max-[359px]:pr-3"
         >
           <ArrowLeft className="size-4" />
-          {t("auth.backHome")}
+          {/* Di layar sangat sempit cukup ikon panah, agar header tidak terlipat dua baris */}
+          <span className="max-[359px]:sr-only">{t("auth.backHome")}</span>
         </Link>
         <div className="glass flex items-center gap-0.5 rounded-full px-1">
           <LocaleToggle />
@@ -42,7 +43,9 @@ export function AuthCard({ children }: { children: React.ReactNode }) {
       <main className="flex flex-1 items-center justify-center px-4 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 24, scale: 0.97, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+          // filter dilepas setelah selesai: filter yang tersisa (blur(0px)) membuat lapisan terpisah
+          // yang bertabrakan dengan backdrop-filter kartu kaca → muncul "kotak" samar di sekitar tombol
+          animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
           transition={{ duration: 1, ease: EASE_OUT_EXPO }}
           className="glass glass-strong w-full max-w-[420px] rounded-[36px] p-2"
         >
@@ -82,13 +85,14 @@ export function AuthCard({ children }: { children: React.ReactNode }) {
               })}
             </nav>
 
-            {/* Tinggi kartu "mengalir" mengikuti isi form */}
-            <motion.div animate={{ height }} transition={{ duration: 0.55, ease: EASE_OUT_EXPO }} className="overflow-hidden">
-              <div ref={measureRef} className="pt-6">
+            {/* Tinggi kartu "mengalir" mengikuti isi form. Wadahnya melebar ke padding kartu (-mx/-mb + px/pb)
+                selebar bayangan tombol (24px ke bawah, 16px ke samping) & cincin fokus input, agar tidak terpotong overflow-hidden. */}
+            <motion.div animate={{ height }} transition={{ duration: 0.55, ease: EASE_OUT_EXPO }} className="-mx-4 -mb-6 overflow-hidden">
+              <div ref={measureRef} className="px-4 pt-6 pb-6">
                 <motion.div
                   key={pathname}
                   initial={{ opacity: 0, x: pathname === "/register" ? 24 : -24, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                  animate={{ opacity: 1, x: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
                   transition={{ duration: 0.5, ease: EASE_OUT_EXPO }}
                 >
                   {children}

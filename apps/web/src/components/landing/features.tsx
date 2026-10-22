@@ -56,7 +56,7 @@ function FeatureCard({ id, className, index, children }: { id: FeatureKey; class
       viewport={{ once: true, margin: "-10% 0px" }}
       transition={{ duration: 1.1, ease: EASE_OUT_EXPO, delay: (index % 3) * 0.08 }}
       className={cn(
-        "group relative flex min-h-[340px] flex-col overflow-hidden rounded-[32px] glass-card p-6 sm:p-8",
+        "group relative flex flex-col overflow-hidden rounded-[32px] glass-card p-6 sm:p-8 md:min-h-[340px]",
         "transition-[box-shadow,translate] duration-700 ease-out-expo hover:-translate-y-1 hover:shadow-[0_30px_80px_-30px_rgb(0_0_0/0.25)]",
         className,
       )}
@@ -75,7 +75,7 @@ function FeatureCard({ id, className, index, children }: { id: FeatureKey; class
           <p className="mt-1 text-[15px] leading-snug text-muted">{t(`${id}.desc`)}</p>
         </div>
       </div>
-      <motion.div style={{ y: visualY }} className="relative mt-8 flex-1">
+      <motion.div style={{ y: visualY }} className="relative mt-6 flex-1 sm:mt-8">
         {children}
       </motion.div>
     </motion.article>

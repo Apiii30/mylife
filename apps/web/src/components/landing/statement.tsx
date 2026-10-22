@@ -21,7 +21,7 @@ export function Statement() {
   const words = t("statement").split(" ");
 
   return (
-    <section className="mx-auto max-w-5xl px-5 py-32 sm:px-6 sm:py-48">
+    <section className="mx-auto max-w-5xl px-5 py-24 sm:px-6 sm:py-48">
       <p
         ref={ref}
         className="text-[clamp(1.9rem,5vw,3.6rem)] leading-[1.12] font-semibold tracking-[-0.035em] text-ink"

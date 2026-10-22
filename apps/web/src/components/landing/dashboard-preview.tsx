@@ -161,15 +161,15 @@ export function DashboardPreview() {
                   {/* Acara */}
                   <Card delay={0.2} className="flex flex-col">
                     <p className="text-[12px] font-medium text-muted">{t("upcoming")}</p>
-                    <div className="mt-3 flex items-center gap-3">
+                    <div className="mt-3 flex flex-col items-start gap-2">
                       <div className="grid w-12 shrink-0 overflow-hidden rounded-xl glass-card text-center">
                         <span className="bg-calendar py-0.5 text-[9px] font-bold tracking-wider text-white uppercase">
                           {format.dateTime(new Date(2026, 9, 25), { month: "short" })}
                         </span>
                         <span className="py-1 text-[20px] font-semibold tracking-tight text-ink">25</span>
                       </div>
-                      <div className="min-w-0">
-                        <p className="truncate text-[13px] font-semibold text-ink">{t("event")}</p>
+                      <div className="w-full min-w-0">
+                        <p className="line-clamp-2 text-[13px] leading-snug font-semibold text-ink">{t("event")}</p>
                         <p className="text-[11px] text-muted">{t("eventTime")}</p>
                       </div>
                     </div>

@@ -2,6 +2,7 @@
 
 import { motion, useInView, useSpring, useTransform } from "motion/react";
 import { useEffect, useId, useRef } from "react";
+import { useLive } from "@/hooks/use-live";
 import { cn } from "@/lib/cn";
 
 /** Gelombang sinus selebar 2x kotak agar bisa digeser tanpa terlihat sambungannya. */
@@ -27,6 +28,8 @@ type LiquidProgressProps = {
 export function LiquidProgress({ value, color = "var(--c-goals)", size = 160, className, label }: LiquidProgressProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
+  // Gelombang hanya bergerak saat bola terlihat
+  const live = useLive(ref);
   const clipId = useId();
   const level = useSpring(0, { stiffness: 40, damping: 18 });
   const y = useTransform(level, (v) => size - (v / 100) * size);
@@ -54,15 +57,15 @@ export function LiquidProgress({ value, color = "var(--c-goals)", size = 160, cl
               d={path}
               fill={color}
               fillOpacity={0.35}
-              animate={{ x: [0, -size / 1.5] }}
-              transition={{ duration: 3.2, ease: "linear", repeat: Infinity }}
+              animate={live ? { x: [0, -size / 1.5] } : { x: 0 }}
+              transition={live ? { duration: 3.2, ease: "linear", repeat: Infinity } : { duration: 0 }}
             />
             <motion.path
               d={path}
               fill={color}
               fillOpacity={0.85}
-              animate={{ x: [-size / 3, -size / 3 - size / 1.5] }}
-              transition={{ duration: 2.1, ease: "linear", repeat: Infinity }}
+              animate={live ? { x: [-size / 3, -size / 3 - size / 1.5] } : { x: -size / 3 }}
+              transition={live ? { duration: 2.1, ease: "linear", repeat: Infinity } : { duration: 0 }}
               style={{ y: amp }}
             />
           </motion.g>

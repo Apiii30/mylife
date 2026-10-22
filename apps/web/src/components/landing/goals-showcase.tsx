@@ -122,9 +122,9 @@ export function GoalsShowcase() {
                 <LiquidProgress value={68} size={208} />
               </div>
               <p className="text-[13px] font-medium text-muted">{t("financial.saved")}</p>
-              <p className="mt-1 text-[22px] font-semibold tracking-[-0.03em] tabular-nums">
-                <CountUp value={12_240_000} format={money} />{" "}
-                <span className="text-[15px] font-medium text-muted">
+              <p className="mt-1 flex flex-wrap items-baseline gap-x-2 text-[22px] font-semibold tracking-[-0.03em] tabular-nums">
+                <CountUp value={12_240_000} format={money} />
+                <span className="text-[15px] font-medium whitespace-nowrap text-muted">
                   {t("financial.of")} {money(18_000_000)}
                 </span>
               </p>

@@ -3,8 +3,9 @@
 import { Check, Flame, GraduationCap, TrendingUp, type LucideIcon } from "lucide-react";
 import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from "motion/react";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { EASE_OUT_EXPO } from "@/components/ui/reveal";
+import { useLive } from "@/hooks/use-live";
 import { demoMoney } from "@/lib/format";
 
 type Floater = {
@@ -25,6 +26,8 @@ export function HeroFloaters() {
   const t = useTranslations("landing.floaters");
   const money = demoMoney(useLocale());
   const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const live = useLive(ref);
   const { scrollY } = useScroll();
   const px = useMotionValue(0);
   const py = useMotionValue(0);
@@ -49,9 +52,9 @@ export function HeroFloaters() {
   ];
 
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
+    <div ref={ref} aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
       {floaters.map((f, i) => (
-        <FloatCard key={f.label} floater={f} index={i} scrollY={scrollY} x={x} y={y} still={Boolean(reduce)} />
+        <FloatCard key={f.label} floater={f} index={i} scrollY={scrollY} x={x} y={y} still={Boolean(reduce)} bob={live} />
       ))}
     </div>
   );
@@ -64,6 +67,7 @@ function FloatCard({
   x,
   y,
   still,
+  bob,
 }: {
   floater: Floater;
   index: number;
@@ -71,6 +75,7 @@ function FloatCard({
   x: MotionValue<number>;
   y: MotionValue<number>;
   still: boolean;
+  bob: boolean;
 }) {
   const { icon: Icon, color, label, value, className, depth, rotate } = floater;
   const tx = useTransform(x, (v) => (still ? 0 : v * 26 * depth));
@@ -85,8 +90,8 @@ function FloatCard({
         transition={{ duration: 1.3, ease: EASE_OUT_EXPO, delay: 1.1 + index * 0.12 }}
       >
         <motion.div
-          animate={still ? undefined : { y: [0, -8, 0] }}
-          transition={{ duration: 5 + index, repeat: Infinity, ease: "easeInOut" }}
+          animate={bob ? { y: [0, -8, 0] } : { y: 0 }}
+          transition={bob ? { duration: 5 + index, repeat: Infinity, ease: "easeInOut" } : { duration: 0.6 }}
           className="glass glass-strong flex items-center gap-3 rounded-[20px] py-3 pr-5 pl-3"
         >
           <span className="grid size-10 place-items-center rounded-[14px]" style={{ color, background: `color-mix(in srgb, ${color} 16%, transparent)` }}>
