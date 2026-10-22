@@ -1,0 +1,341 @@
+// MyLife database schema
+// Docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider            = "prisma-client"
+  output              = "../src/generated/prisma"
+  moduleFormat        = "esm"
+  importFileExtension = "js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Enums ───────────────────────────────────────────────
+
+enum Locale {
+  id
+  en
+}
+
+enum TransactionType {
+  INCOME
+  EXPENSE
+}
+
+enum CategoryKind {
+  INCOME
+  EXPENSE
+  TASK
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  DONE
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum GoalType {
+  FINANCIAL // progress = total tabungan / target
+  LIFE // progress = milestone selesai / total milestone
+}
+
+enum GoalStatus {
+  ACTIVE
+  COMPLETED
+  ARCHIVED
+}
+
+enum EventRepeat {
+  NONE
+  DAILY
+  WEEKLY
+  MONTHLY
+  YEARLY
+}
+
+enum GradeScale {
+  LETTER_AB // A, AB, B, BC, C, D, E
+  PLUS_MINUS // A, A-, B+, B, B-, C+, C, D, E
+}
+
+enum Mood {
+  GREAT
+  GOOD
+  OKAY
+  BAD
+  AWFUL
+}
+
+// ─── User ────────────────────────────────────────────────
+
+model User {
+  id                  String     @id @default(cuid())
+  name                String
+  email               String     @unique
+  passwordHash        String?    @map("password_hash") // null untuk akun yang hanya login via Google
+  image               String?
+  currency            String     @default("IDR")
+  locale              Locale     @default(id)
+  gradeScale          GradeScale @default(LETTER_AB) @map("grade_scale")
+  notificationsSeenAt DateTime?  @map("notifications_seen_at")
+  createdAt           DateTime   @default(now()) @map("created_at")
+  updatedAt           DateTime   @updatedAt @map("updated_at")
+
+  categories   Category[]
+  transactions Transaction[]
+  tasks        Task[]
+  events       Event[]
+  journals     Journal[]
+  albums       Album[]
+  photos       Photo[]
+  goals        Goal[]
+  semesters    Semester[]
+  courses      Course[]
+
+  @@map("users")
+}
+
+model Category {
+  id        String       @id @default(cuid())
+  userId    String       @map("user_id")
+  name      String
+  kind      CategoryKind
+  color     String       @default("blue")
+  icon      String?
+  createdAt DateTime     @default(now()) @map("created_at")
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
+  tasks        Task[]
+
+  @@unique([userId, kind, name])
+  @@map("categories")
+}
+
+// ─── Keuangan ────────────────────────────────────────────
+
+model Transaction {
+  id         String          @id @default(cuid())
+  userId     String          @map("user_id")
+  categoryId String?         @map("category_id")
+  type       TransactionType
+  amount     Decimal         @db.Decimal(14, 2)
+  date       DateTime        @db.Date
+  note       String?
+  createdAt  DateTime        @default(now()) @map("created_at")
+  updatedAt  DateTime        @updatedAt @map("updated_at")
+
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category    Category?    @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  goalDeposit GoalDeposit?
+
+  @@index([userId, date])
+  @@map("transactions")
+}
+
+// ─── To-Do ───────────────────────────────────────────────
+
+model Task {
+  id          String     @id @default(cuid())
+  userId      String     @map("user_id")
+  categoryId  String?    @map("category_id")
+  title       String
+  description String?
+  dueDate     DateTime?  @map("due_date")
+  hasDueTime  Boolean    @default(false) @map("has_due_time") // false = tenggat hanya tanggal
+  priority    Priority   @default(MEDIUM)
+  status      TaskStatus @default(TODO)
+  position    Int        @default(0)
+  completedAt DateTime?  @map("completed_at")
+  createdAt   DateTime   @default(now()) @map("created_at")
+  updatedAt   DateTime   @updatedAt @map("updated_at")
+
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  @@index([userId, status])
+  @@index([userId, dueDate])
+  @@map("tasks")
+}
+
+// ─── Kalender ────────────────────────────────────────────
+
+model Event {
+  id          String      @id @default(cuid())
+  userId      String      @map("user_id")
+  title       String
+  description String?
+  location    String?
+  startAt     DateTime    @map("start_at")
+  endAt       DateTime    @map("end_at")
+  allDay      Boolean     @default(false) @map("all_day") // true: start/end = tanggal (UTC tengah malam), end inklusif
+  repeat      EventRepeat @default(NONE) // pengulangan dihitung di klien pada zona waktu perangkat
+  color       String      @default("blue")
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, startAt])
+  @@map("events")
+}
+
+// ─── Jurnal ──────────────────────────────────────────────
+
+model Journal {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  title     String?
+  content   Json? // dokumen rich-text (Tiptap JSON)
+  excerpt   String? // potongan awal untuk kartu daftar
+  plainText String   @default("") @map("plain_text") // teks polos lengkap untuk pencarian
+  wordCount Int      @default(0) @map("word_count")
+  mood      Mood?
+  date      DateTime @db.Date
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  photos Photo[]
+
+  @@index([userId, date])
+  @@map("journals")
+}
+
+// ─── Gallery / Memories ──────────────────────────────────
+
+model Album {
+  id          String   @id @default(cuid())
+  userId      String   @map("user_id")
+  name        String
+  description String?
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  photos Photo[]
+
+  @@map("albums")
+}
+
+model Photo {
+  id        String    @id @default(cuid())
+  userId    String    @map("user_id")
+  albumId   String?   @map("album_id")
+  journalId String?   @map("journal_id")
+  url       String
+  publicId  String    @map("public_id") // id Cloudinary, dipakai saat menghapus
+  width     Int
+  height    Int
+  caption   String?
+  takenAt   DateTime? @map("taken_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  album   Album?   @relation(fields: [albumId], references: [id], onDelete: SetNull)
+  journal Journal? @relation(fields: [journalId], references: [id], onDelete: SetNull)
+
+  @@index([userId, createdAt])
+  @@map("photos")
+}
+
+// ─── Goals ───────────────────────────────────────────────
+
+model Goal {
+  id            String     @id @default(cuid())
+  userId        String     @map("user_id")
+  title         String
+  description   String?
+  type          GoalType
+  targetAmount  Decimal?   @map("target_amount") @db.Decimal(14, 2)
+  coverUrl      String?    @map("cover_url")
+  coverPublicId String?    @map("cover_public_id")
+  color         String     @default("purple")
+  icon          String     @default("target")
+  deadline      DateTime?  @db.Date
+  status        GoalStatus @default(ACTIVE)
+  completedAt   DateTime?  @map("completed_at")
+  createdAt     DateTime   @default(now()) @map("created_at")
+  updatedAt     DateTime   @updatedAt @map("updated_at")
+
+  user       User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  milestones GoalMilestone[]
+  deposits   GoalDeposit[]
+
+  @@index([userId, status])
+  @@map("goals")
+}
+
+model GoalMilestone {
+  id       String    @id @default(cuid())
+  goalId   String    @map("goal_id")
+  title    String
+  done     Boolean   @default(false)
+  doneAt   DateTime? @map("done_at")
+  position Int       @default(0)
+
+  goal Goal @relation(fields: [goalId], references: [id], onDelete: Cascade)
+
+  @@index([goalId])
+  @@map("goal_milestones")
+}
+
+model GoalDeposit {
+  id            String   @id @default(cuid())
+  goalId        String   @map("goal_id")
+  transactionId String?  @unique @map("transaction_id") // setoran juga tercatat sebagai pengeluaran
+  amount        Decimal  @db.Decimal(14, 2)
+  date          DateTime @db.Date
+  note          String?
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  goal        Goal         @relation(fields: [goalId], references: [id], onDelete: Cascade)
+  transaction Transaction? @relation(fields: [transactionId], references: [id], onDelete: SetNull)
+
+  @@index([goalId])
+  @@map("goal_deposits")
+}
+
+// ─── Nilai kuliah ────────────────────────────────────────
+
+model Semester {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  number    Int // semester ke-n
+  label     String? // mis. "Ganjil 2025/2026"
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  courses Course[]
+
+  @@unique([userId, number])
+  @@map("semesters")
+}
+
+model Course {
+  id         String   @id @default(cuid())
+  userId     String   @map("user_id")
+  semesterId String   @map("semester_id")
+  name       String
+  code       String?
+  credits    Int // SKS
+  grade      String // huruf mutu: A, AB, A-, B+, …
+  position   Int      @default(0)
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  semester Semester @relation(fields: [semesterId], references: [id], onDelete: Cascade)
+
+  @@index([semesterId])
+  @@index([userId])
+  @@map("courses")
+}

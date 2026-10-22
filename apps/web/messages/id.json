@@ -1,0 +1,878 @@
+{
+  "common": {
+    "appName": "MyLife",
+    "login": "Masuk",
+    "register": "Daftar",
+    "logout": "Keluar",
+    "getStarted": "Mulai sekarang",
+    "openDashboard": "Buka dashboard",
+    "language": "Bahasa",
+    "theme": "Tema",
+    "light": "Terang",
+    "dark": "Gelap",
+    "system": "Sistem",
+    "toggleTheme": "Ganti tema",
+    "menu": "Menu",
+    "close": "Tutup",
+    "comingSoon": "Segera hadir"
+  },
+  "landing": {
+    "nav": {
+      "features": "Fitur",
+      "goals": "Goals",
+      "why": "Kenapa MyLife"
+    },
+    "hero": {
+      "badge": "Satu ruang untuk seluruh hidupmu",
+      "line1": "Hidupmu,",
+      "line2": "tertata indah.",
+      "subtitle": "Keuangan, tugas, jadwal, jurnal, kenangan, dan impian — semuanya dalam satu ruang yang tenang dan rapi.",
+      "primary": "Mulai sekarang",
+      "secondary": "Lihat fitur"
+    },
+    "preview": {
+      "greeting": "Selamat pagi, Nadia",
+      "date": "Rabu, 21 Oktober",
+      "balance": "Saldo bulan ini",
+      "income": "Masuk",
+      "expense": "Keluar",
+      "today": "Hari ini",
+      "task1": "Kumpulkan laporan praktikum",
+      "task2": "Meeting tim jam 14.00",
+      "task3": "Olahraga sore",
+      "upcoming": "Acara terdekat",
+      "event": "Ulang tahun Raka",
+      "eventTime": "Sabtu · 19.00",
+      "goal": "MacBook Air",
+      "goalProgress": "68% tercapai"
+    },
+    "statement": "Hidup itu banyak hal. Uang yang datang dan pergi. Tugas yang terus menumpuk. Momen kecil yang ingin kamu ingat. Mimpi besar yang ingin kamu kejar. MyLife merangkum semuanya, dengan tenang.",
+    "features": {
+      "eyebrow": "Fitur",
+      "title": "Tujuh ruang.\nSatu kehidupan.",
+      "subtitle": "Setiap bagian hidupmu punya tempatnya sendiri — dan semuanya saling terhubung.",
+      "finance": {
+        "title": "Keuangan",
+        "desc": "Catat pemasukan dan pengeluaran, lihat ke mana uangmu pergi setiap bulan.",
+        "balance": "Saldo",
+        "months": "Mei,Jun,Jul,Agu,Sep,Okt"
+      },
+      "tasks": {
+        "title": "To-Do",
+        "desc": "Pekerjaan, kuliah, dan urusan sehari-hari dalam satu daftar.",
+        "items": "Revisi bab 3 skripsi,Bayar tagihan listrik,Beli hadiah untuk Ibu"
+      },
+      "calendar": {
+        "title": "Kalender",
+        "desc": "Atur acara dan lihat tenggat tugasmu di satu kalender.",
+        "weekdays": "Sen,Sel,Rab,Kam,Jum,Sab,Min"
+      },
+      "journal": {
+        "title": "Jurnal",
+        "desc": "Tulis cerita harianmu dan catat suasana hati.",
+        "entry": "Hari ini akhirnya sidang proposal selesai. Lega sekali rasanya…"
+      },
+      "gallery": {
+        "title": "Memories",
+        "desc": "Simpan foto-foto berharga dalam album kenangan."
+      },
+      "goals": {
+        "title": "Goals",
+        "desc": "Dari membeli barang impian sampai lulus kuliah — pantau progresnya.",
+        "items": "MacBook Air,Lari 10K,Dana darurat"
+      },
+      "grades": {
+        "title": "Nilai Kuliah",
+        "desc": "Catat nilai tiap semester, IP & IPK dihitung otomatis.",
+        "gpa": "IPK",
+        "predicate": "Cum laude"
+      }
+    },
+    "goals": {
+      "eyebrow": "Goals",
+      "title": "Impian yang\nbisa diukur.",
+      "subtitle": "Bukan hanya barang. MyLife membantu kamu mengejar apa pun — dengan progres yang terlihat.",
+      "financial": {
+        "label": "Goal finansial",
+        "title": "MacBook Air M5",
+        "saved": "Terkumpul",
+        "of": "dari",
+        "desc": "Setiap kali kamu menabung, progres bertambah — dan otomatis tercatat di keuangan."
+      },
+      "life": {
+        "label": "Goal kehidupan",
+        "title": "Lulus kuliah",
+        "milestones": "Seminar proposal,Penelitian & analisis,Sidang skripsi,Wisuda",
+        "desc": "Pecah impian besar menjadi langkah kecil. Centang satu per satu."
+      }
+    },
+    "why": {
+      "title": "Dibuat untuk dipakai setiap hari.",
+      "items": {
+        "lang": {
+          "title": "Indonesia & English",
+          "desc": "Ganti bahasa kapan saja."
+        },
+        "theme": {
+          "title": "Terang & gelap",
+          "desc": "Nyaman di mata, siang maupun malam."
+        },
+        "devices": {
+          "title": "Di semua perangkat",
+          "desc": "Laptop, tablet, atau ponsel."
+        },
+        "private": {
+          "title": "Milikmu sendiri",
+          "desc": "Datamu hanya bisa dilihat olehmu."
+        }
+      }
+    },
+    "cta": {
+      "title": "Mulai menata\nhidupmu hari ini.",
+      "subtitle": "Gratis. Tanpa ribet. Cukup satu akun.",
+      "button": "Buat akun"
+    },
+    "footer": {
+      "tagline": "Satu ruang untuk seluruh hidupmu.",
+      "rights": "Hak cipta dilindungi."
+    },
+    "floaters": {
+      "income": "Pemasukan",
+      "task": "Tugas selesai",
+      "taskValue": "Revisi bab 3",
+      "streak": "Streak jurnal",
+      "streakValue": "12 hari 🔥",
+      "gpa": "IPK semester ini"
+    }
+  },
+  "auth": {
+    "loginTitle": "Selamat datang kembali",
+    "loginSubtitle": "Masuk untuk melanjutkan ke MyLife.",
+    "registerTitle": "Buat akun MyLife",
+    "registerSubtitle": "Mulai menata hidupmu dalam satu menit.",
+    "name": "Nama lengkap",
+    "email": "Email",
+    "password": "Kata sandi",
+    "passwordHint": "Minimal 8 karakter",
+    "showPassword": "Tampilkan kata sandi",
+    "hidePassword": "Sembunyikan kata sandi",
+    "submitLogin": "Masuk",
+    "submitRegister": "Buat akun",
+    "or": "atau",
+    "google": "Lanjutkan dengan Google",
+    "noAccount": "Belum punya akun?",
+    "haveAccount": "Sudah punya akun?",
+    "backHome": "Kembali ke beranda",
+    "errors": {
+      "INVALID_CREDENTIALS": "Email atau kata sandi salah.",
+      "EMAIL_TAKEN": "Email ini sudah terdaftar. Coba masuk.",
+      "VALIDATION_ERROR": "Periksa kembali data yang kamu isi.",
+      "RATE_LIMITED": "Terlalu banyak percobaan. Coba lagi beberapa menit lagi.",
+      "NETWORK": "Tidak bisa terhubung ke server. Pastikan API berjalan.",
+      "OAUTH": "Login Google gagal. Coba lagi.",
+      "UNKNOWN": "Terjadi kesalahan. Coba lagi.",
+      "nameMin": "Nama minimal 2 karakter.",
+      "emailInvalid": "Format email tidak valid.",
+      "passwordMin": "Kata sandi minimal 8 karakter.",
+      "required": "Wajib diisi."
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "overview": "Ringkasan",
+      "finance": "Keuangan",
+      "tasks": "To-Do",
+      "calendar": "Kalender",
+      "journal": "Jurnal",
+      "gallery": "Memories",
+      "goals": "Goals",
+      "settings": "Pengaturan",
+      "more": "Lainnya",
+      "collapse": "Ciutkan sidebar",
+      "expand": "Lebarkan sidebar",
+      "grades": "Nilai Kuliah"
+    },
+    "greeting": {
+      "morning": "Selamat pagi",
+      "afternoon": "Selamat siang",
+      "evening": "Selamat sore",
+      "night": "Selamat malam"
+    },
+    "overview": {
+      "subtitle": "Ini ringkasan hidupmu hari ini.",
+      "balance": "Saldo bulan ini",
+      "income": "Pemasukan",
+      "expense": "Pengeluaran",
+      "todayTasks": "Tugas hari ini",
+      "upcoming": "Acara terdekat",
+      "goals": "Progres goals",
+      "journal": "Jurnal terakhir",
+      "memories": "Memories",
+      "empty": {
+        "finance": "Belum ada transaksi bulan ini.",
+        "financeCta": "Catat transaksi",
+        "tasks": "Tidak ada tugas untuk hari ini. Nikmati harimu!",
+        "tasksCta": "Tambah tugas",
+        "events": "Belum ada acara yang dijadwalkan.",
+        "eventsCta": "Buat acara",
+        "goals": "Tetapkan impian pertamamu.",
+        "goalsCta": "Buat goal",
+        "journal": "Ceritakan harimu dalam beberapa kalimat.",
+        "journalCta": "Tulis jurnal",
+        "memories": "Simpan momen berhargamu di sini.",
+        "memoriesCta": "Upload foto",
+        "grades": "Catat nilai semester pertamamu untuk melihat IPK.",
+        "gradesCta": "Tambah nilai"
+      },
+      "cashflow": "Arus kas",
+      "spending": "Pengeluaran per kategori",
+      "grades": "Nilai kuliah"
+    },
+    "modules": {
+      "finance": "Pantau pemasukan dan pengeluaranmu, lengkap dengan grafik bulanan.",
+      "tasks": "Kelola tugas pekerjaan, kuliah, dan kehidupan sehari-hari.",
+      "calendar": "Atur acara dan lihat semua tenggat waktumu.",
+      "journal": "Tulis diary dan catat suasana hatimu setiap hari.",
+      "gallery": "Upload foto dan susun album kenanganmu.",
+      "goals": "Kejar impianmu dengan progres yang terukur.",
+      "settings": "Atur profil, mata uang, bahasa, dan tema.",
+      "grades": "Catat nilai mata kuliah dan pantau IP serta IPK-mu."
+    },
+    "placeholder": "Modul ini sedang dibangun dan akan hadir di tahap berikutnya."
+  },
+  "notFound": {
+    "title": "Halaman tidak ditemukan",
+    "desc": "Sepertinya halaman yang kamu cari sudah pindah atau tidak pernah ada.",
+    "back": "Kembali ke beranda"
+  },
+  "finance": {
+    "title": "Keuangan",
+    "add": "Tambah",
+    "addTransaction": "Tambah transaksi",
+    "newTransaction": "Transaksi baru",
+    "editTransaction": "Edit transaksi",
+    "income": "Pemasukan",
+    "expense": "Pengeluaran",
+    "balance": "Saldo",
+    "net": "Selisih",
+    "cashflow": "Arus kas",
+    "cashflowSub": "Pemasukan vs pengeluaran, 6 bulan terakhir",
+    "spending": "Pengeluaran per kategori",
+    "balanceTrend": "Saldo sepanjang bulan",
+    "transactions": "Transaksi",
+    "all": "Semua",
+    "search": "Cari catatan…",
+    "vsLastMonth": "vs bulan lalu",
+    "empty": "Belum ada transaksi di bulan ini.",
+    "emptyHint": "Mulai catat pemasukan dan pengeluaranmu.",
+    "emptyChart": "Belum ada data untuk ditampilkan",
+    "emptySpending": "Belum ada pengeluaran di bulan ini.",
+    "noResults": "Tidak ada transaksi yang cocok.",
+    "today": "Hari ini",
+    "yesterday": "Kemarin",
+    "uncategorized": "Tanpa kategori",
+    "others": "Lainnya",
+    "prevMonth": "Bulan sebelumnya",
+    "nextMonth": "Bulan berikutnya",
+    "thisMonth": "Bulan ini",
+    "viewAll": "Lihat semua",
+    "count": "{count, plural, =0 {Tidak ada transaksi} other {# transaksi}}",
+    "form": {
+      "amount": "Jumlah",
+      "category": "Kategori",
+      "date": "Tanggal",
+      "note": "Catatan",
+      "notePlaceholder": "Contoh: makan siang bareng teman",
+      "save": "Simpan",
+      "delete": "Hapus",
+      "confirmDelete": "Ketuk lagi untuk menghapus",
+      "cancel": "Batal",
+      "newCategory": "Baru",
+      "categoryName": "Nama kategori",
+      "addCategory": "Tambah",
+      "amountRequired": "Masukkan jumlah lebih dari 0."
+    },
+    "toast": {
+      "created": "Transaksi tersimpan",
+      "updated": "Perubahan disimpan",
+      "deleted": "Transaksi dihapus",
+      "error": "Gagal menyimpan. Coba lagi."
+    }
+  },
+  "tasks": {
+    "title": "To-Do",
+    "active": "{count, plural, =0 {Tidak ada tugas aktif} other {# tugas aktif}}",
+    "add": "Tambah tugas",
+    "quickAdd": "Tambah tugas, lalu tekan Enter…",
+    "newTask": "Tugas baru",
+    "editTask": "Edit tugas",
+    "search": "Cari tugas…",
+    "views": {
+      "list": "Daftar",
+      "board": "Papan"
+    },
+    "filters": {
+      "all": "Semua",
+      "today": "Hari ini",
+      "upcoming": "Mendatang",
+      "overdue": "Terlambat",
+      "done": "Selesai"
+    },
+    "groups": {
+      "overdue": "Terlambat",
+      "today": "Hari ini",
+      "tomorrow": "Besok",
+      "week": "7 hari ke depan",
+      "later": "Nanti",
+      "noDate": "Tanpa tenggat",
+      "done": "Selesai"
+    },
+    "status": {
+      "TODO": "Belum dikerjakan",
+      "IN_PROGRESS": "Sedang dikerjakan",
+      "DONE": "Selesai"
+    },
+    "priority": {
+      "label": "Prioritas",
+      "LOW": "Rendah",
+      "MEDIUM": "Sedang",
+      "HIGH": "Tinggi"
+    },
+    "when": {
+      "today": "Hari ini",
+      "tomorrow": "Besok",
+      "yesterday": "Kemarin"
+    },
+    "form": {
+      "title": "Judul tugas",
+      "description": "Catatan (opsional)",
+      "category": "Kategori",
+      "due": "Tenggat",
+      "time": "Jam",
+      "addTime": "+ Jam",
+      "noDue": "Tanpa tenggat",
+      "today": "Hari ini",
+      "tomorrow": "Besok",
+      "nextWeek": "Minggu depan",
+      "status": "Status",
+      "none": "Tanpa kategori",
+      "save": "Simpan",
+      "delete": "Hapus",
+      "confirmDelete": "Ketuk lagi untuk menghapus",
+      "titleRequired": "Judul tugas wajib diisi."
+    },
+    "empty": {
+      "all": "Belum ada tugas. Tambahkan yang pertama!",
+      "today": "Tidak ada tugas untuk hari ini.",
+      "upcoming": "Tidak ada tugas mendatang.",
+      "overdue": "Tidak ada yang terlambat. Mantap!",
+      "done": "Belum ada tugas yang selesai.",
+      "column": "Lepas tugas di sini"
+    },
+    "progressToday": "{done}/{total} selesai hari ini",
+    "allDone": "Semua tugas hari ini beres!",
+    "showDone": "Tampilkan selesai",
+    "hideDone": "Sembunyikan",
+    "toast": {
+      "created": "Tugas ditambahkan",
+      "updated": "Perubahan disimpan",
+      "deleted": "Tugas dihapus",
+      "error": "Gagal menyimpan. Coba lagi."
+    },
+    "statusShort": {
+      "TODO": "Belum",
+      "IN_PROGRESS": "Proses",
+      "DONE": "Selesai"
+    }
+  },
+  "goals": {
+    "title": "Goals",
+    "summary": "{active} aktif · {completed} tercapai",
+    "add": "Buat goal",
+    "newGoal": "Goal baru",
+    "editGoal": "Edit goal",
+    "tabs": {
+      "active": "Aktif",
+      "completed": "Tercapai",
+      "archived": "Diarsipkan"
+    },
+    "types": {
+      "FINANCIAL": {
+        "name": "Finansial",
+        "desc": "Menabung untuk membeli sesuatu"
+      },
+      "LIFE": {
+        "name": "Kehidupan",
+        "desc": "Pencapaian dengan langkah-langkah"
+      }
+    },
+    "stats": {
+      "active": "Goal aktif",
+      "saved": "Total ditabung",
+      "completed": "Tercapai"
+    },
+    "card": {
+      "saved": "Terkumpul",
+      "of": "dari",
+      "remaining": "Sisa {amount}",
+      "perMonth": "Nabung ~{amount}/bulan agar tepat waktu",
+      "daysLeft": "{days, plural, =0 {Hari ini} other {# hari lagi}}",
+      "overdue": "Lewat {days} hari",
+      "noDeadline": "Tanpa tenggat",
+      "next": "Berikutnya",
+      "steps": "{done}/{total} langkah",
+      "noSteps": "Belum ada langkah",
+      "reached": "Tercapai!",
+      "deposit": "Nabung"
+    },
+    "form": {
+      "type": "Jenis goal",
+      "title": "Nama goal",
+      "placeholderFINANCIAL": "Contoh: MacBook Air",
+      "placeholderLIFE": "Contoh: Lulus kuliah",
+      "description": "Kenapa ini penting? (opsional)",
+      "target": "Target",
+      "deadline": "Tenggat",
+      "noDeadline": "Tanpa tenggat",
+      "icon": "Ikon",
+      "color": "Warna",
+      "milestones": "Langkah-langkah",
+      "addMilestone": "Tambah langkah, lalu Enter…",
+      "create": "Buat goal",
+      "save": "Simpan",
+      "titleRequired": "Nama goal wajib diisi.",
+      "targetRequired": "Masukkan target lebih dari 0."
+    },
+    "detail": {
+      "milestones": "Langkah-langkah",
+      "addStep": "Tambah langkah, lalu Enter…",
+      "deposits": "Riwayat tabungan",
+      "noDeposits": "Belum ada setoran.",
+      "edit": "Edit",
+      "archive": "Arsipkan",
+      "unarchive": "Aktifkan lagi",
+      "delete": "Hapus",
+      "confirmDelete": "Ketuk lagi untuk menghapus",
+      "deleteDeposit": "Hapus setoran",
+      "linked": "Tercatat di Keuangan",
+      "close": "Tutup",
+      "completedOn": "Tercapai {date}"
+    },
+    "deposit": {
+      "title": "Tambah tabungan",
+      "date": "Tanggal",
+      "note": "Catatan (opsional)",
+      "record": "Catat juga sebagai pengeluaran di Keuangan",
+      "save": "Simpan",
+      "cancel": "Batal",
+      "finish": "Lunasi {amount}"
+    },
+    "empty": {
+      "active": "Belum ada goal. Mulai dari satu impian kecil!",
+      "completed": "Belum ada goal yang tercapai. Semangat!",
+      "archived": "Tidak ada goal yang diarsipkan."
+    },
+    "toast": {
+      "created": "Goal dibuat",
+      "updated": "Perubahan disimpan",
+      "deleted": "Goal dihapus",
+      "deposited": "Tabungan ditambahkan",
+      "completed": "Selamat! Goal tercapai",
+      "archived": "Goal diarsipkan",
+      "error": "Gagal menyimpan. Coba lagi."
+    }
+  },
+  "calendar": {
+    "title": "Kalender",
+    "summaryMonth": "{count, plural, =0 {Belum ada acara bulan ini} other {# acara bulan ini}}",
+    "summaryWeek": "{count, plural, =0 {Belum ada acara minggu ini} other {# acara minggu ini}}",
+    "add": "Acara baru",
+    "newEvent": "Acara baru",
+    "editEvent": "Edit acara",
+    "today": "Hari ini",
+    "tomorrow": "Besok",
+    "yesterday": "Kemarin",
+    "prev": "Sebelumnya",
+    "next": "Berikutnya",
+    "views": {
+      "month": "Bulan",
+      "week": "Minggu"
+    },
+    "layers": {
+      "events": "Acara",
+      "tasks": "Tugas",
+      "goals": "Goals"
+    },
+    "allDay": "Seharian",
+    "from": "Mulai {time}",
+    "until": "Sampai {time}",
+    "more": "+{count} lainnya",
+    "goalDeadline": "Tenggat goal",
+    "taskDue": "Tenggat tugas",
+    "noEvents": "Hari ini kosong. Waktunya bersantai — atau buat acara baru.",
+    "addOn": "Tambah acara",
+    "shortcuts": "Pintasan: ← → navigasi · T hari ini · N acara baru · M/W ganti tampilan · seret acara untuk memindahkan",
+    "repeatShort": {
+      "NONE": "Sekali",
+      "DAILY": "Harian",
+      "WEEKLY": "Mingguan",
+      "MONTHLY": "Bulanan",
+      "YEARLY": "Tahunan"
+    },
+    "form": {
+      "title": "Judul acara",
+      "titleRequired": "Judul acara wajib diisi.",
+      "allDay": "Seharian",
+      "start": "Mulai",
+      "end": "Selesai",
+      "repeat": "Ulangi",
+      "color": "Warna",
+      "location": "Lokasi (opsional)",
+      "description": "Catatan (opsional)",
+      "save": "Simpan",
+      "create": "Buat acara",
+      "confirmDelete": "Ketuk lagi untuk menghapus",
+      "confirmDeleteSeries": "Hapus semua pengulangan?",
+      "endBeforeStart": "Waktu selesai harus setelah waktu mulai."
+    },
+    "toast": {
+      "created": "Acara dibuat",
+      "updated": "Perubahan disimpan",
+      "deleted": "Acara dihapus",
+      "moved": "Dipindahkan ke {date}",
+      "undo": "Urungkan",
+      "error": "Gagal menyimpan. Coba lagi."
+    },
+    "live": "Sedang berlangsung"
+  },
+  "journal": {
+    "title": "Jurnal",
+    "summary": "{entries, plural, =0 {Belum ada entri} other {# entri}} · {words} kata",
+    "writeToday": "Tulis hari ini",
+    "writeAgain": "Tulis lagi",
+    "writeFirst": "Tulis entri pertama",
+    "back": "Kembali ke jurnal",
+    "notFound": "Entri ini tidak ditemukan atau sudah dihapus.",
+    "today": "Hari ini",
+    "untitled": "Tanpa judul",
+    "titlePlaceholder": "Judul (opsional)",
+    "placeholder": "Ceritakan harimu…",
+    "search": "Cari di jurnalmu…",
+    "words": "{count, plural, =0 {0 kata} other {# kata}}",
+    "readTime": "{minutes} menit membaca",
+    "delete": "Hapus entri",
+    "confirmDelete": "Ketuk lagi untuk menghapus",
+    "streakDays": "{count, plural, other {hari beruntun}}",
+    "streakShort": "{count, plural, =0 {Belum ada streak} other {# hari beruntun}}",
+    "streakDone": "Kamu sudah menulis hari ini. Mantap!",
+    "streakKeep": "Tulis hari ini agar streak-mu berlanjut.",
+    "streakStart": "Tulis setiap hari untuk membangun streak.",
+    "moodMonth": "Suasana hati",
+    "promptsTitle": "Bingung mulai dari mana?",
+    "prompts": {
+      "grateful": "Apa yang paling kamu syukuri hari ini?",
+      "smile": "Momen apa yang membuatmu tersenyum?",
+      "mind": "Apa yang sedang mengganggu pikiranmu?",
+      "learned": "Apa yang kamu pelajari hari ini?",
+      "tomorrow": "Apa yang ingin kamu lakukan lebih baik besok?"
+    },
+    "mood": {
+      "label": "Suasana hati",
+      "prompt": "Bagaimana perasaanmu?",
+      "GREAT": "Luar biasa",
+      "GOOD": "Baik",
+      "OKAY": "Biasa saja",
+      "BAD": "Kurang baik",
+      "AWFUL": "Buruk sekali"
+    },
+    "status": {
+      "dirty": "Belum tersimpan",
+      "saving": "Menyimpan…",
+      "saved": "Tersimpan",
+      "error": "Gagal menyimpan · coba lagi"
+    },
+    "format": {
+      "label": "Format teks",
+      "bold": "Tebal",
+      "italic": "Miring",
+      "strike": "Coret",
+      "h2": "Judul besar",
+      "h3": "Judul kecil",
+      "quote": "Kutipan",
+      "bullet": "Daftar poin",
+      "ordered": "Daftar bernomor",
+      "task": "Daftar centang",
+      "divider": "Garis pemisah",
+      "undo": "Urungkan",
+      "redo": "Ulangi"
+    },
+    "empty": {
+      "title": "Halaman pertamamu menunggu.",
+      "text": "Jurnal adalah ruang pribadimu — tulis apa saja, sependek apa pun. Lihat suasana hatimu berubah dari hari ke hari.",
+      "filtered": "Tidak ada entri yang cocok."
+    },
+    "toast": {
+      "deleted": "Entri dihapus"
+    }
+  },
+  "gallery": {
+    "title": "Memories",
+    "summary": "{photos, plural, =0 {Belum ada foto} other {# foto}} · {albums, plural, =0 {belum ada album} other {# album}}",
+    "photos": "{count, plural, =0 {Kosong} other {# foto}}",
+    "photo": "Foto",
+    "viewer": "Penampil foto",
+    "close": "Tutup",
+    "previous": "Foto sebelumnya",
+    "next": "Foto berikutnya",
+    "download": "Unduh asli",
+    "moveToAlbum": "Pindah ke album",
+    "delete": "Hapus",
+    "confirmDelete": "Hapus foto?",
+    "caption": "Keterangan foto",
+    "addCaption": "Tambahkan keterangan…",
+    "tabs": {
+      "photos": "Semua foto",
+      "albums": "Album"
+    },
+    "select": {
+      "start": "Pilih",
+      "cancel": "Batal",
+      "count": "{count, plural, =0 {Pilih foto} other {# dipilih}}"
+    },
+    "empty": {
+      "title": "Simpan momen pertamamu",
+      "album": "Album ini masih kosong",
+      "text": "Seret foto ke halaman ini atau klik untuk memilih dari perangkat. Tanggal foto dibaca otomatis dari kamera."
+    },
+    "upload": {
+      "button": "Unggah",
+      "drop": "Lepaskan untuk mengunggah",
+      "hint": "JPG, PNG, HEIC, WebP — maks. 10 MB per foto",
+      "uploading": "Mengunggah {count} foto…",
+      "done": "{count, plural, =0 {Selesai} other {# foto terunggah}}",
+      "failed": "{count} gagal",
+      "dismiss": "Tutup",
+      "toast": "{count} foto ditambahkan ke Memories",
+      "error": {
+        "size": "Lebih dari 10 MB",
+        "type": "Bukan file gambar",
+        "failed": "Gagal mengunggah"
+      }
+    },
+    "albums": {
+      "new": "Album baru",
+      "rename": "Ubah album",
+      "delete": "Hapus album",
+      "menu": "Opsi album",
+      "back": "Kembali ke album",
+      "name": "Nama album",
+      "description": "Deskripsi (opsional)",
+      "create": "Buat album",
+      "save": "Simpan",
+      "none": "Tanpa album",
+      "moveTitle": "Pindah ke album",
+      "newPlaceholder": "Album baru…",
+      "createAndMove": "Buat & pindah",
+      "deleteTitle": "Hapus “{name}”?",
+      "deleteKeep": "Albumnya dihapus, tapi foto-fotonya tetap ada di Semua foto.",
+      "deleteWithPhotos": "Album beserta {count, plural, other {# foto}} di dalamnya akan dihapus permanen.",
+      "alsoDeletePhotos": "Hapus juga fotonya",
+      "cancel": "Batal",
+      "toast": {
+        "created": "Album dibuat",
+        "updated": "Album diperbarui",
+        "deleted": "Album dihapus",
+        "error": "Gagal menyimpan. Coba lagi."
+      }
+    },
+    "toast": {
+      "deleted": "{count, plural, other {# foto dihapus}}",
+      "moved": "{count, plural, other {# foto}} dipindah ke {album}",
+      "removed": "{count, plural, other {# foto}} dikeluarkan dari album",
+      "error": "Terjadi kesalahan. Coba lagi."
+    }
+  },
+  "search": {
+    "placeholder": "Cari apa saja…",
+    "placeholderLong": "Cari tugas, acara, jurnal, transaksi, foto…",
+    "hint": "Ketik minimal 2 huruf untuk mencari di semua modul.",
+    "empty": "Tidak ada hasil untuk “{query}”.",
+    "navigate": "pilih",
+    "open": "buka",
+    "groups": {
+      "pages": "Halaman",
+      "tasks": "Tugas",
+      "events": "Acara",
+      "journals": "Jurnal",
+      "goals": "Goals",
+      "transactions": "Transaksi",
+      "photos": "Memories",
+      "courses": "Mata kuliah"
+    }
+  },
+  "notifications": {
+    "title": "Notifikasi",
+    "count": "{count, plural, =0 {Semua beres} other {# item}}",
+    "emptyTitle": "Belum ada notifikasi",
+    "emptyBody": "Pengingat tugas, acara, dan goals akan muncul di sini.",
+    "overdueOne": "Tugas terlambat",
+    "overdueMany": "{count} tugas terlambat",
+    "dueToday": "{count, plural, other {# tugas jatuh tempo hari ini}}",
+    "allDayToday": "Seharian, hari ini",
+    "allDayTomorrow": "Seharian, besok",
+    "eventSoon": "Mulai {relative} · {time}",
+    "eventLive": "Sedang berlangsung · sampai {time}",
+    "goalDone": "Goal tercapai! 🎉",
+    "goalDueToday": "Tenggat goal hari ini",
+    "goalDueSoon": "Tenggat goal {days} hari lagi",
+    "journalTitle": "Belum menulis jurnal hari ini",
+    "journalBody": "Luangkan dua menit untuk merekam harimu.",
+    "journalStreak": "Jaga streak {count} hari-mu — tulis sebelum tengah malam."
+  },
+  "grades": {
+    "title": "Nilai Kuliah",
+    "subtitle": "Catat nilai tiap semester, IP & IPK dihitung otomatis.",
+    "summary": "IPK {ipk} · {credits} SKS · {semesters} semester",
+    "semesterN": "Semester {n}",
+    "addSemester": "Semester baru",
+    "ip": "IP",
+    "ipk": "IPK",
+    "ipkCumulative": "IPK kumulatif",
+    "credits": "SKS",
+    "creditsN": "{n} SKS",
+    "totalCredits": "Total SKS",
+    "courses": "Mata kuliah",
+    "semesters": "Semester",
+    "progress": "Perkembangan IP",
+    "course": "Mata kuliah",
+    "grade": "Nilai",
+    "quality": "Bobot",
+    "pickGrade": "Pilih nilai",
+    "codePlaceholder": "Kode",
+    "labelPlaceholder": "Tambah keterangan, mis. Ganjil 2025/2026",
+    "addPlaceholder": "Nama mata kuliah…",
+    "addCourse": "Tambah",
+    "deleteCourse": "Hapus mata kuliah",
+    "deleteSemester": "Hapus semester",
+    "confirmDeleteSemester": "Hapus semester ini?",
+    "emptyCourses": "Belum ada mata kuliah. Tambahkan di bawah.",
+    "predicate": {
+      "cumlaude": "Dengan pujian",
+      "veryGood": "Sangat memuaskan",
+      "good": "Memuaskan",
+      "fair": "Perlu ditingkatkan"
+    },
+    "empty": {
+      "title": "Mulai catat perjalanan kuliahmu",
+      "text": "Tambahkan semester, isi mata kuliah beserta SKS dan nilainya — IP tiap semester dan IPK-mu dihitung otomatis.",
+      "cta": "Tambah semester pertama"
+    },
+    "toast": {
+      "semesterCreated": "Semester {n} ditambahkan",
+      "semesterDeleted": "Semester dihapus",
+      "error": "Gagal menyimpan. Coba lagi."
+    }
+  },
+  "settings": {
+    "title": "Pengaturan",
+    "subtitle": "Atur profil, tampilan, kategori, dan keamanan akunmu.",
+    "nav": {
+      "profile": "Profil",
+      "preferences": "Preferensi",
+      "categories": "Kategori",
+      "security": "Keamanan",
+      "data": "Data & akun"
+    },
+    "profile": {
+      "title": "Profil",
+      "description": "Nama dan foto yang tampil di MyLife.",
+      "changeAvatar": "Ganti foto profil",
+      "avatarHint": "JPG, PNG, atau HEIC · maks. 5 MB",
+      "upload": "Unggah foto",
+      "remove": "Hapus",
+      "avatarType": "File harus berupa gambar.",
+      "avatarSize": "Ukuran foto maksimal 5 MB.",
+      "avatarSaved": "Foto profil diperbarui",
+      "avatarRemoved": "Foto profil dihapus",
+      "name": "Nama",
+      "email": "Email",
+      "emailHint": "Email dipakai untuk masuk dan tidak bisa diubah.",
+      "memberSince": "Bergabung sejak {date}",
+      "save": "Simpan perubahan",
+      "saved": "Profil disimpan",
+      "error": "Gagal menyimpan. Coba lagi."
+    },
+    "preferences": {
+      "title": "Preferensi",
+      "description": "Bahasa, tampilan, dan format yang kamu sukai.",
+      "language": "Bahasa",
+      "languageHint": "Bahasa antarmuka MyLife.",
+      "theme": "Tema",
+      "themeHint": "Sistem mengikuti pengaturan perangkatmu.",
+      "light": "Terang",
+      "dark": "Gelap",
+      "system": "Sistem",
+      "currency": "Mata uang",
+      "currencyHint": "Contoh: {example}",
+      "gradeScale": "Skala nilai kuliah",
+      "gradeScaleHint": "Sesuaikan dengan sistem penilaian kampusmu.",
+      "scale": {
+        "LETTER_AB": "A / AB / B / BC",
+        "PLUS_MINUS": "A / A- / B+ / B"
+      },
+      "saved": "Preferensi disimpan",
+      "error": "Gagal menyimpan. Coba lagi."
+    },
+    "categories": {
+      "title": "Kategori",
+      "description": "Kelompokkan transaksi dan tugasmu. Klik ikon untuk mengganti warna & ikon.",
+      "EXPENSE": "Pengeluaran",
+      "INCOME": "Pemasukan",
+      "TASK": "Tugas",
+      "addPlaceholder": "Kategori baru…",
+      "add": "Tambah",
+      "name": "Nama kategori",
+      "color": "Warna",
+      "icon": "Ikon",
+      "changeIcon": "Ganti warna & ikon",
+      "delete": "Hapus kategori",
+      "confirmDelete": "Hapus?",
+      "duplicate": "Nama kategori itu sudah ada.",
+      "error": "Gagal menyimpan. Coba lagi."
+    },
+    "security": {
+      "title": "Keamanan",
+      "description": "Ganti password secara berkala agar akunmu tetap aman.",
+      "descriptionNoPassword": "Kamu masuk dengan Google. Buat password agar bisa masuk dengan email juga.",
+      "current": "Password saat ini",
+      "new": "Password baru",
+      "confirm": "Ulangi password baru",
+      "change": "Ganti password",
+      "set": "Buat password",
+      "tooShort": "Password minimal 8 karakter.",
+      "mismatch": "Password baru tidak sama.",
+      "wrong": "Password saat ini salah.",
+      "tooMany": "Terlalu banyak percobaan. Coba lagi nanti.",
+      "saved": "Password berhasil diganti",
+      "error": "Gagal menyimpan. Coba lagi."
+    },
+    "data": {
+      "title": "Data & akun",
+      "description": "Datamu milikmu — unduh kapan saja.",
+      "export": "Ekspor data",
+      "exportHint": "Semua transaksi, tugas, acara, jurnal, goals, dan nilai dalam satu file JSON.",
+      "exportButton": "Unduh data",
+      "exported": "Data diunduh",
+      "delete": "Hapus akun",
+      "deleteHint": "Menghapus akun beserta seluruh data dan foto secara permanen.",
+      "deleteButton": "Hapus akun",
+      "confirmTitle": "Hapus akun selamanya?",
+      "confirmBody": "Semua data — transaksi, tugas, jurnal, foto, goals, dan nilai — akan dihapus permanen dan tidak bisa dipulihkan.",
+      "confirmType": "Ketik <email></email> untuk konfirmasi.",
+      "emailLabel": "Email kamu",
+      "cancel": "Batal",
+      "deleteForever": "Hapus selamanya",
+      "error": "Terjadi kesalahan. Coba lagi."
+    }
+  }
+}

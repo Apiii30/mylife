@@ -1,0 +1,878 @@
+{
+  "common": {
+    "appName": "MyLife",
+    "login": "Sign in",
+    "register": "Sign up",
+    "logout": "Sign out",
+    "getStarted": "Get started",
+    "openDashboard": "Open dashboard",
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggleTheme": "Toggle theme",
+    "menu": "Menu",
+    "close": "Close",
+    "comingSoon": "Coming soon"
+  },
+  "landing": {
+    "nav": {
+      "features": "Features",
+      "goals": "Goals",
+      "why": "Why MyLife"
+    },
+    "hero": {
+      "badge": "One space for your whole life",
+      "line1": "Your life,",
+      "line2": "beautifully organized.",
+      "subtitle": "Money, tasks, plans, journal, memories, and dreams — all in one calm, tidy space.",
+      "primary": "Get started",
+      "secondary": "See features"
+    },
+    "preview": {
+      "greeting": "Good morning, Nadia",
+      "date": "Wednesday, October 21",
+      "balance": "Balance this month",
+      "income": "In",
+      "expense": "Out",
+      "today": "Today",
+      "task1": "Submit lab report",
+      "task2": "Team meeting at 2 PM",
+      "task3": "Evening workout",
+      "upcoming": "Up next",
+      "event": "Raka's birthday",
+      "eventTime": "Saturday · 7 PM",
+      "goal": "MacBook Air",
+      "goalProgress": "68% reached"
+    },
+    "statement": "Life is a lot of things. Money that comes and goes. Tasks that keep piling up. Little moments you want to remember. Big dreams you want to chase. MyLife brings it all together, calmly.",
+    "features": {
+      "eyebrow": "Features",
+      "title": "Seven spaces.\nOne life.",
+      "subtitle": "Every part of your life gets its own place — and they all work together.",
+      "finance": {
+        "title": "Finance",
+        "desc": "Track income and expenses, and see where your money goes each month.",
+        "balance": "Balance",
+        "months": "May,Jun,Jul,Aug,Sep,Oct"
+      },
+      "tasks": {
+        "title": "To-Do",
+        "desc": "Work, college, and everyday errands in a single list.",
+        "items": "Revise thesis chapter 3,Pay the electricity bill,Buy a gift for Mom"
+      },
+      "calendar": {
+        "title": "Calendar",
+        "desc": "Plan events and see task deadlines on one calendar.",
+        "weekdays": "M,T,W,T,F,S,S"
+      },
+      "journal": {
+        "title": "Journal",
+        "desc": "Write your daily story and log how you feel.",
+        "entry": "Finally finished my proposal defense today. Such a relief…"
+      },
+      "gallery": {
+        "title": "Memories",
+        "desc": "Keep your precious photos in albums of memories."
+      },
+      "goals": {
+        "title": "Goals",
+        "desc": "From buying your dream gadget to graduating — track the progress.",
+        "items": "MacBook Air,Run a 10K,Emergency fund"
+      },
+      "grades": {
+        "title": "Grades",
+        "desc": "Log every semester's courses — GPA is calculated for you.",
+        "gpa": "GPA",
+        "predicate": "Cum laude"
+      }
+    },
+    "goals": {
+      "eyebrow": "Goals",
+      "title": "Dreams you\ncan measure.",
+      "subtitle": "Not just things to buy. MyLife helps you chase anything — with progress you can see.",
+      "financial": {
+        "label": "Financial goal",
+        "title": "MacBook Air M5",
+        "saved": "Saved",
+        "of": "of",
+        "desc": "Every time you save, progress grows — and it's logged in your finances automatically."
+      },
+      "life": {
+        "label": "Life goal",
+        "title": "Graduate college",
+        "milestones": "Proposal seminar,Research & analysis,Thesis defense,Graduation",
+        "desc": "Break big dreams into small steps. Check them off one by one."
+      }
+    },
+    "why": {
+      "title": "Made for every single day.",
+      "items": {
+        "lang": {
+          "title": "English & Indonesia",
+          "desc": "Switch languages anytime."
+        },
+        "theme": {
+          "title": "Light & dark",
+          "desc": "Easy on the eyes, day or night."
+        },
+        "devices": {
+          "title": "On every device",
+          "desc": "Laptop, tablet, or phone."
+        },
+        "private": {
+          "title": "Yours alone",
+          "desc": "Only you can see your data."
+        }
+      }
+    },
+    "cta": {
+      "title": "Start organizing\nyour life today.",
+      "subtitle": "Free. No hassle. Just one account.",
+      "button": "Create account"
+    },
+    "footer": {
+      "tagline": "One space for your whole life.",
+      "rights": "All rights reserved."
+    },
+    "floaters": {
+      "income": "Income",
+      "task": "Task done",
+      "taskValue": "Chapter 3 draft",
+      "streak": "Journal streak",
+      "streakValue": "12 days 🔥",
+      "gpa": "This semester's GPA"
+    }
+  },
+  "auth": {
+    "loginTitle": "Welcome back",
+    "loginSubtitle": "Sign in to continue to MyLife.",
+    "registerTitle": "Create your MyLife account",
+    "registerSubtitle": "Start organizing your life in a minute.",
+    "name": "Full name",
+    "email": "Email",
+    "password": "Password",
+    "passwordHint": "At least 8 characters",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "submitLogin": "Sign in",
+    "submitRegister": "Create account",
+    "or": "or",
+    "google": "Continue with Google",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "backHome": "Back to home",
+    "errors": {
+      "INVALID_CREDENTIALS": "Incorrect email or password.",
+      "EMAIL_TAKEN": "This email is already registered. Try signing in.",
+      "VALIDATION_ERROR": "Please check the details you entered.",
+      "RATE_LIMITED": "Too many attempts. Try again in a few minutes.",
+      "NETWORK": "Can't reach the server. Make sure the API is running.",
+      "OAUTH": "Google sign-in failed. Please try again.",
+      "UNKNOWN": "Something went wrong. Please try again.",
+      "nameMin": "Name must be at least 2 characters.",
+      "emailInvalid": "Invalid email format.",
+      "passwordMin": "Password must be at least 8 characters.",
+      "required": "Required."
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "overview": "Overview",
+      "finance": "Finance",
+      "tasks": "To-Do",
+      "calendar": "Calendar",
+      "journal": "Journal",
+      "gallery": "Memories",
+      "goals": "Goals",
+      "settings": "Settings",
+      "more": "More",
+      "collapse": "Collapse sidebar",
+      "expand": "Expand sidebar",
+      "grades": "Grades"
+    },
+    "greeting": {
+      "morning": "Good morning",
+      "afternoon": "Good afternoon",
+      "evening": "Good evening",
+      "night": "Good night"
+    },
+    "overview": {
+      "subtitle": "Here's your life at a glance today.",
+      "balance": "Balance this month",
+      "income": "Income",
+      "expense": "Expenses",
+      "todayTasks": "Today's tasks",
+      "upcoming": "Up next",
+      "goals": "Goal progress",
+      "journal": "Latest journal",
+      "memories": "Memories",
+      "empty": {
+        "finance": "No transactions this month yet.",
+        "financeCta": "Add transaction",
+        "tasks": "Nothing due today. Enjoy your day!",
+        "tasksCta": "Add task",
+        "events": "No upcoming events yet.",
+        "eventsCta": "Create event",
+        "goals": "Set your very first dream.",
+        "goalsCta": "Create goal",
+        "journal": "Tell the story of your day in a few lines.",
+        "journalCta": "Write entry",
+        "memories": "Keep your precious moments here.",
+        "memoriesCta": "Upload photos",
+        "grades": "Log your first semester to see your GPA.",
+        "gradesCta": "Add grades"
+      },
+      "cashflow": "Cash flow",
+      "spending": "Spending by category",
+      "grades": "Grades"
+    },
+    "modules": {
+      "finance": "Track your income and expenses with monthly charts.",
+      "tasks": "Manage work, college, and everyday tasks.",
+      "calendar": "Plan events and see all of your deadlines.",
+      "journal": "Write your diary and log your mood every day.",
+      "gallery": "Upload photos and build albums of memories.",
+      "goals": "Chase your dreams with measurable progress.",
+      "settings": "Manage your profile, currency, language, and theme.",
+      "grades": "Track your course grades, GPA per semester and overall."
+    },
+    "placeholder": "This module is under construction and arrives in the next stage."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "desc": "Looks like the page you're looking for has moved or never existed.",
+    "back": "Back to home"
+  },
+  "finance": {
+    "title": "Finance",
+    "add": "Add",
+    "addTransaction": "Add transaction",
+    "newTransaction": "New transaction",
+    "editTransaction": "Edit transaction",
+    "income": "Income",
+    "expense": "Expenses",
+    "balance": "Balance",
+    "net": "Net",
+    "cashflow": "Cash flow",
+    "cashflowSub": "Income vs expenses, last 6 months",
+    "spending": "Spending by category",
+    "balanceTrend": "Balance through the month",
+    "transactions": "Transactions",
+    "all": "All",
+    "search": "Search notes…",
+    "vsLastMonth": "vs last month",
+    "empty": "No transactions this month yet.",
+    "emptyHint": "Start logging your income and expenses.",
+    "emptyChart": "No data to show yet",
+    "emptySpending": "No spending this month yet.",
+    "noResults": "No matching transactions.",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "uncategorized": "Uncategorized",
+    "others": "Others",
+    "prevMonth": "Previous month",
+    "nextMonth": "Next month",
+    "thisMonth": "This month",
+    "viewAll": "View all",
+    "count": "{count, plural, =0 {No transactions} one {# transaction} other {# transactions}}",
+    "form": {
+      "amount": "Amount",
+      "category": "Category",
+      "date": "Date",
+      "note": "Note",
+      "notePlaceholder": "e.g. lunch with friends",
+      "save": "Save",
+      "delete": "Delete",
+      "confirmDelete": "Tap again to delete",
+      "cancel": "Cancel",
+      "newCategory": "New",
+      "categoryName": "Category name",
+      "addCategory": "Add",
+      "amountRequired": "Enter an amount greater than 0."
+    },
+    "toast": {
+      "created": "Transaction saved",
+      "updated": "Changes saved",
+      "deleted": "Transaction deleted",
+      "error": "Couldn't save. Please try again."
+    }
+  },
+  "tasks": {
+    "title": "To-Do",
+    "active": "{count, plural, =0 {No active tasks} one {# active task} other {# active tasks}}",
+    "add": "Add task",
+    "quickAdd": "Add a task, then press Enter…",
+    "newTask": "New task",
+    "editTask": "Edit task",
+    "search": "Search tasks…",
+    "views": {
+      "list": "List",
+      "board": "Board"
+    },
+    "filters": {
+      "all": "All",
+      "today": "Today",
+      "upcoming": "Upcoming",
+      "overdue": "Overdue",
+      "done": "Done"
+    },
+    "groups": {
+      "overdue": "Overdue",
+      "today": "Today",
+      "tomorrow": "Tomorrow",
+      "week": "Next 7 days",
+      "later": "Later",
+      "noDate": "No due date",
+      "done": "Done"
+    },
+    "status": {
+      "TODO": "To do",
+      "IN_PROGRESS": "In progress",
+      "DONE": "Done"
+    },
+    "priority": {
+      "label": "Priority",
+      "LOW": "Low",
+      "MEDIUM": "Medium",
+      "HIGH": "High"
+    },
+    "when": {
+      "today": "Today",
+      "tomorrow": "Tomorrow",
+      "yesterday": "Yesterday"
+    },
+    "form": {
+      "title": "Task title",
+      "description": "Notes (optional)",
+      "category": "Category",
+      "due": "Due",
+      "time": "Time",
+      "addTime": "+ Time",
+      "noDue": "No due date",
+      "today": "Today",
+      "tomorrow": "Tomorrow",
+      "nextWeek": "Next week",
+      "status": "Status",
+      "none": "No category",
+      "save": "Save",
+      "delete": "Delete",
+      "confirmDelete": "Tap again to delete",
+      "titleRequired": "Task title is required."
+    },
+    "empty": {
+      "all": "No tasks yet. Add your first one!",
+      "today": "Nothing due today.",
+      "upcoming": "No upcoming tasks.",
+      "overdue": "Nothing overdue. Nice!",
+      "done": "No completed tasks yet.",
+      "column": "Drop tasks here"
+    },
+    "progressToday": "{done}/{total} done today",
+    "allDone": "All of today's tasks are done!",
+    "showDone": "Show completed",
+    "hideDone": "Hide",
+    "toast": {
+      "created": "Task added",
+      "updated": "Changes saved",
+      "deleted": "Task deleted",
+      "error": "Couldn't save. Please try again."
+    },
+    "statusShort": {
+      "TODO": "To do",
+      "IN_PROGRESS": "Doing",
+      "DONE": "Done"
+    }
+  },
+  "goals": {
+    "title": "Goals",
+    "summary": "{active} active · {completed} reached",
+    "add": "New goal",
+    "newGoal": "New goal",
+    "editGoal": "Edit goal",
+    "tabs": {
+      "active": "Active",
+      "completed": "Reached",
+      "archived": "Archived"
+    },
+    "types": {
+      "FINANCIAL": {
+        "name": "Financial",
+        "desc": "Save up to buy something"
+      },
+      "LIFE": {
+        "name": "Life",
+        "desc": "An achievement with steps"
+      }
+    },
+    "stats": {
+      "active": "Active goals",
+      "saved": "Total saved",
+      "completed": "Reached"
+    },
+    "card": {
+      "saved": "Saved",
+      "of": "of",
+      "remaining": "{amount} to go",
+      "perMonth": "Save ~{amount}/month to make it on time",
+      "daysLeft": "{days, plural, =0 {Today} one {# day left} other {# days left}}",
+      "overdue": "{days} days overdue",
+      "noDeadline": "No deadline",
+      "next": "Next up",
+      "steps": "{done}/{total} steps",
+      "noSteps": "No steps yet",
+      "reached": "Reached!",
+      "deposit": "Save"
+    },
+    "form": {
+      "type": "Goal type",
+      "title": "Goal name",
+      "placeholderFINANCIAL": "e.g. MacBook Air",
+      "placeholderLIFE": "e.g. Graduate college",
+      "description": "Why does it matter? (optional)",
+      "target": "Target",
+      "deadline": "Deadline",
+      "noDeadline": "No deadline",
+      "icon": "Icon",
+      "color": "Color",
+      "milestones": "Steps",
+      "addMilestone": "Add a step, then press Enter…",
+      "create": "Create goal",
+      "save": "Save",
+      "titleRequired": "Goal name is required.",
+      "targetRequired": "Enter a target greater than 0."
+    },
+    "detail": {
+      "milestones": "Steps",
+      "addStep": "Add a step, then press Enter…",
+      "deposits": "Savings history",
+      "noDeposits": "No deposits yet.",
+      "edit": "Edit",
+      "archive": "Archive",
+      "unarchive": "Reactivate",
+      "delete": "Delete",
+      "confirmDelete": "Tap again to delete",
+      "deleteDeposit": "Delete deposit",
+      "linked": "Logged in Finance",
+      "close": "Close",
+      "completedOn": "Reached {date}"
+    },
+    "deposit": {
+      "title": "Add savings",
+      "date": "Date",
+      "note": "Note (optional)",
+      "record": "Also log it as an expense in Finance",
+      "save": "Save",
+      "cancel": "Cancel",
+      "finish": "Finish {amount}"
+    },
+    "empty": {
+      "active": "No goals yet. Start with one small dream!",
+      "completed": "No goals reached yet. Keep going!",
+      "archived": "No archived goals."
+    },
+    "toast": {
+      "created": "Goal created",
+      "updated": "Changes saved",
+      "deleted": "Goal deleted",
+      "deposited": "Savings added",
+      "completed": "Congrats! Goal reached",
+      "archived": "Goal archived",
+      "error": "Couldn't save. Please try again."
+    }
+  },
+  "calendar": {
+    "title": "Calendar",
+    "summaryMonth": "{count, plural, =0 {No events this month} one {# event this month} other {# events this month}}",
+    "summaryWeek": "{count, plural, =0 {No events this week} one {# event this week} other {# events this week}}",
+    "add": "New event",
+    "newEvent": "New event",
+    "editEvent": "Edit event",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "yesterday": "Yesterday",
+    "prev": "Previous",
+    "next": "Next",
+    "views": {
+      "month": "Month",
+      "week": "Week"
+    },
+    "layers": {
+      "events": "Events",
+      "tasks": "Tasks",
+      "goals": "Goals"
+    },
+    "allDay": "All day",
+    "from": "From {time}",
+    "until": "Until {time}",
+    "more": "+{count} more",
+    "goalDeadline": "Goal deadline",
+    "taskDue": "Task due",
+    "noEvents": "Nothing planned. Time to relax — or add an event.",
+    "addOn": "Add event",
+    "shortcuts": "Shortcuts: ← → navigate · T today · N new event · M/W switch view · drag events to move them",
+    "repeatShort": {
+      "NONE": "Once",
+      "DAILY": "Daily",
+      "WEEKLY": "Weekly",
+      "MONTHLY": "Monthly",
+      "YEARLY": "Yearly"
+    },
+    "form": {
+      "title": "Event title",
+      "titleRequired": "Event title is required.",
+      "allDay": "All day",
+      "start": "Starts",
+      "end": "Ends",
+      "repeat": "Repeat",
+      "color": "Color",
+      "location": "Location (optional)",
+      "description": "Notes (optional)",
+      "save": "Save",
+      "create": "Create event",
+      "confirmDelete": "Tap again to delete",
+      "confirmDeleteSeries": "Delete all repeats?",
+      "endBeforeStart": "End time must be after the start time."
+    },
+    "toast": {
+      "created": "Event created",
+      "updated": "Changes saved",
+      "deleted": "Event deleted",
+      "moved": "Moved to {date}",
+      "undo": "Undo",
+      "error": "Couldn't save. Please try again."
+    },
+    "live": "Happening now"
+  },
+  "journal": {
+    "title": "Journal",
+    "summary": "{entries, plural, =0 {No entries yet} one {# entry} other {# entries}} · {words} words",
+    "writeToday": "Write today",
+    "writeAgain": "Write again",
+    "writeFirst": "Write your first entry",
+    "back": "Back to journal",
+    "notFound": "This entry doesn't exist or was deleted.",
+    "today": "Today",
+    "untitled": "Untitled",
+    "titlePlaceholder": "Title (optional)",
+    "placeholder": "Tell me about your day…",
+    "search": "Search your journal…",
+    "words": "{count, plural, one {# word} other {# words}}",
+    "readTime": "{minutes} min read",
+    "delete": "Delete entry",
+    "confirmDelete": "Tap again to delete",
+    "streakDays": "{count, plural, one {day streak} other {day streak}}",
+    "streakShort": "{count, plural, =0 {No streak yet} one {# day streak} other {# day streak}}",
+    "streakDone": "You've written today. Nice!",
+    "streakKeep": "Write today to keep your streak going.",
+    "streakStart": "Write every day to build a streak.",
+    "moodMonth": "Mood",
+    "promptsTitle": "Not sure where to start?",
+    "prompts": {
+      "grateful": "What are you most grateful for today?",
+      "smile": "What moment made you smile?",
+      "mind": "What's been on your mind?",
+      "learned": "What did you learn today?",
+      "tomorrow": "What would you like to do better tomorrow?"
+    },
+    "mood": {
+      "label": "Mood",
+      "prompt": "How are you feeling?",
+      "GREAT": "Great",
+      "GOOD": "Good",
+      "OKAY": "Okay",
+      "BAD": "Not great",
+      "AWFUL": "Awful"
+    },
+    "status": {
+      "dirty": "Unsaved",
+      "saving": "Saving…",
+      "saved": "Saved",
+      "error": "Couldn't save · retry"
+    },
+    "format": {
+      "label": "Text formatting",
+      "bold": "Bold",
+      "italic": "Italic",
+      "strike": "Strikethrough",
+      "h2": "Heading",
+      "h3": "Subheading",
+      "quote": "Quote",
+      "bullet": "Bulleted list",
+      "ordered": "Numbered list",
+      "task": "Checklist",
+      "divider": "Divider",
+      "undo": "Undo",
+      "redo": "Redo"
+    },
+    "empty": {
+      "title": "Your first page is waiting.",
+      "text": "Your journal is a private space — write anything, however short. Watch your mood change from day to day.",
+      "filtered": "No matching entries."
+    },
+    "toast": {
+      "deleted": "Entry deleted"
+    }
+  },
+  "gallery": {
+    "title": "Memories",
+    "summary": "{photos, plural, =0 {No photos yet} one {# photo} other {# photos}} · {albums, plural, =0 {no albums} one {# album} other {# albums}}",
+    "photos": "{count, plural, =0 {Empty} one {# photo} other {# photos}}",
+    "photo": "Photo",
+    "viewer": "Photo viewer",
+    "close": "Close",
+    "previous": "Previous photo",
+    "next": "Next photo",
+    "download": "Download original",
+    "moveToAlbum": "Move to album",
+    "delete": "Delete",
+    "confirmDelete": "Delete photo?",
+    "caption": "Photo caption",
+    "addCaption": "Add a caption…",
+    "tabs": {
+      "photos": "All photos",
+      "albums": "Albums"
+    },
+    "select": {
+      "start": "Select",
+      "cancel": "Cancel",
+      "count": "{count, plural, =0 {Select photos} other {# selected}}"
+    },
+    "empty": {
+      "title": "Save your first moment",
+      "album": "This album is empty",
+      "text": "Drag photos onto this page or click to choose from your device. Photo dates are read from the camera automatically."
+    },
+    "upload": {
+      "button": "Upload",
+      "drop": "Drop to upload",
+      "hint": "JPG, PNG, HEIC, WebP — up to 10 MB each",
+      "uploading": "Uploading {count, plural, one {# photo} other {# photos}}…",
+      "done": "{count, plural, =0 {Done} one {# photo uploaded} other {# photos uploaded}}",
+      "failed": "{count} failed",
+      "dismiss": "Dismiss",
+      "toast": "{count, plural, one {# photo} other {# photos}} added to Memories",
+      "error": {
+        "size": "Larger than 10 MB",
+        "type": "Not an image",
+        "failed": "Upload failed"
+      }
+    },
+    "albums": {
+      "new": "New album",
+      "rename": "Edit album",
+      "delete": "Delete album",
+      "menu": "Album options",
+      "back": "Back to albums",
+      "name": "Album name",
+      "description": "Description (optional)",
+      "create": "Create album",
+      "save": "Save",
+      "none": "No album",
+      "moveTitle": "Move to album",
+      "newPlaceholder": "New album…",
+      "createAndMove": "Create & move",
+      "deleteTitle": "Delete “{name}”?",
+      "deleteKeep": "The album is removed, but its photos stay in All photos.",
+      "deleteWithPhotos": "The album and its {count, plural, one {# photo} other {# photos}} will be permanently deleted.",
+      "alsoDeletePhotos": "Also delete the photos",
+      "cancel": "Cancel",
+      "toast": {
+        "created": "Album created",
+        "updated": "Album updated",
+        "deleted": "Album deleted",
+        "error": "Couldn't save. Please try again."
+      }
+    },
+    "toast": {
+      "deleted": "{count, plural, one {# photo deleted} other {# photos deleted}}",
+      "moved": "{count, plural, one {# photo} other {# photos}} moved to {album}",
+      "removed": "{count, plural, one {# photo} other {# photos}} removed from album",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+  "search": {
+    "placeholder": "Search anything…",
+    "placeholderLong": "Search tasks, events, journal, transactions, photos…",
+    "hint": "Type at least 2 letters to search every module.",
+    "empty": "No results for “{query}”.",
+    "navigate": "select",
+    "open": "open",
+    "groups": {
+      "pages": "Pages",
+      "tasks": "Tasks",
+      "events": "Events",
+      "journals": "Journal",
+      "goals": "Goals",
+      "transactions": "Transactions",
+      "photos": "Memories",
+      "courses": "Courses"
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "count": "{count, plural, =0 {All clear} one {# item} other {# items}}",
+    "emptyTitle": "No notifications yet",
+    "emptyBody": "Reminders for tasks, events and goals will show up here.",
+    "overdueOne": "Overdue task",
+    "overdueMany": "{count} overdue tasks",
+    "dueToday": "{count, plural, one {# task due today} other {# tasks due today}}",
+    "allDayToday": "All day, today",
+    "allDayTomorrow": "All day, tomorrow",
+    "eventSoon": "Starts {relative} · {time}",
+    "eventLive": "Happening now · until {time}",
+    "goalDone": "Goal achieved! 🎉",
+    "goalDueToday": "Goal due today",
+    "goalDueSoon": "Goal due in {days} days",
+    "journalTitle": "You haven't journaled today",
+    "journalBody": "Take two minutes to capture your day.",
+    "journalStreak": "Keep your {count}-day streak — write before midnight."
+  },
+  "grades": {
+    "title": "Grades",
+    "subtitle": "Log each semester's grades — GPA is calculated for you.",
+    "summary": "GPA {ipk} · {credits} credits · {semesters, plural, one {# semester} other {# semesters}}",
+    "semesterN": "Semester {n}",
+    "addSemester": "New semester",
+    "ip": "GPA",
+    "ipk": "Cumulative GPA",
+    "ipkCumulative": "Cumulative GPA",
+    "credits": "Credits",
+    "creditsN": "{n} credits",
+    "totalCredits": "Total credits",
+    "courses": "Courses",
+    "semesters": "Semesters",
+    "progress": "GPA over time",
+    "course": "Course",
+    "grade": "Grade",
+    "quality": "Points",
+    "pickGrade": "Pick a grade",
+    "codePlaceholder": "Code",
+    "labelPlaceholder": "Add a note, e.g. Fall 2025",
+    "addPlaceholder": "Course name…",
+    "addCourse": "Add",
+    "deleteCourse": "Delete course",
+    "deleteSemester": "Delete semester",
+    "confirmDeleteSemester": "Delete this semester?",
+    "emptyCourses": "No courses yet. Add one below.",
+    "predicate": {
+      "cumlaude": "Cum laude",
+      "veryGood": "Very satisfactory",
+      "good": "Satisfactory",
+      "fair": "Room to grow"
+    },
+    "empty": {
+      "title": "Start tracking your studies",
+      "text": "Add a semester, then list its courses with credits and grades — your semester and cumulative GPA are calculated automatically.",
+      "cta": "Add first semester"
+    },
+    "toast": {
+      "semesterCreated": "Semester {n} added",
+      "semesterDeleted": "Semester deleted",
+      "error": "Couldn't save. Please try again."
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your profile, appearance, categories and account security.",
+    "nav": {
+      "profile": "Profile",
+      "preferences": "Preferences",
+      "categories": "Categories",
+      "security": "Security",
+      "data": "Data & account"
+    },
+    "profile": {
+      "title": "Profile",
+      "description": "The name and photo shown across MyLife.",
+      "changeAvatar": "Change profile photo",
+      "avatarHint": "JPG, PNG or HEIC · up to 5 MB",
+      "upload": "Upload photo",
+      "remove": "Remove",
+      "avatarType": "Please choose an image file.",
+      "avatarSize": "Photos can be up to 5 MB.",
+      "avatarSaved": "Profile photo updated",
+      "avatarRemoved": "Profile photo removed",
+      "name": "Name",
+      "email": "Email",
+      "emailHint": "Your email is used to sign in and can't be changed.",
+      "memberSince": "Member since {date}",
+      "save": "Save changes",
+      "saved": "Profile saved",
+      "error": "Couldn't save. Please try again."
+    },
+    "preferences": {
+      "title": "Preferences",
+      "description": "Language, appearance and formats you prefer.",
+      "language": "Language",
+      "languageHint": "The language of the MyLife interface.",
+      "theme": "Theme",
+      "themeHint": "System follows your device setting.",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System",
+      "currency": "Currency",
+      "currencyHint": "Example: {example}",
+      "gradeScale": "Grading scale",
+      "gradeScaleHint": "Match your university's grading system.",
+      "scale": {
+        "LETTER_AB": "A / AB / B / BC",
+        "PLUS_MINUS": "A / A- / B+ / B"
+      },
+      "saved": "Preferences saved",
+      "error": "Couldn't save. Please try again."
+    },
+    "categories": {
+      "title": "Categories",
+      "description": "Group your transactions and tasks. Click an icon to change its color & icon.",
+      "EXPENSE": "Expenses",
+      "INCOME": "Income",
+      "TASK": "Tasks",
+      "addPlaceholder": "New category…",
+      "add": "Add",
+      "name": "Category name",
+      "color": "Color",
+      "icon": "Icon",
+      "changeIcon": "Change color & icon",
+      "delete": "Delete category",
+      "confirmDelete": "Delete?",
+      "duplicate": "That category already exists.",
+      "error": "Couldn't save. Please try again."
+    },
+    "security": {
+      "title": "Security",
+      "description": "Change your password regularly to keep your account safe.",
+      "descriptionNoPassword": "You signed in with Google. Set a password to also sign in with email.",
+      "current": "Current password",
+      "new": "New password",
+      "confirm": "Repeat new password",
+      "change": "Change password",
+      "set": "Set password",
+      "tooShort": "Password must be at least 8 characters.",
+      "mismatch": "The new passwords don't match.",
+      "wrong": "Your current password is incorrect.",
+      "tooMany": "Too many attempts. Try again later.",
+      "saved": "Password changed",
+      "error": "Couldn't save. Please try again."
+    },
+    "data": {
+      "title": "Data & account",
+      "description": "Your data is yours — download it any time.",
+      "export": "Export data",
+      "exportHint": "All transactions, tasks, events, journal, goals and grades in one JSON file.",
+      "exportButton": "Download data",
+      "exported": "Data downloaded",
+      "delete": "Delete account",
+      "deleteHint": "Permanently delete your account with all data and photos.",
+      "deleteButton": "Delete account",
+      "confirmTitle": "Delete your account forever?",
+      "confirmBody": "All your data — transactions, tasks, journal, photos, goals and grades — will be permanently deleted and can't be recovered.",
+      "confirmType": "Type <email></email> to confirm.",
+      "emailLabel": "Your email",
+      "cancel": "Cancel",
+      "deleteForever": "Delete forever",
+      "error": "Something went wrong. Please try again."
+    }
+  }
+}

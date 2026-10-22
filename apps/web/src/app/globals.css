@@ -1,0 +1,494 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── Design tokens ─────────────────────────────────────── */
+
+:root {
+  /* Palet lavender ala "frosted glass": latar ungu-biru lembut, teks navy, aksen indigo */
+  --canvas: #eceefc;
+  --surface: rgb(255 255 255 / 0.74);
+  --surface-2: rgb(255 255 255 / 0.5);
+  --ink: #161a3d;
+  --ink-2: #3b4068;
+  --muted: #6a6f95;
+  --subtle: #a2a6c6;
+  --line: rgb(70 80 170 / 0.1);
+  --line-strong: rgb(70 80 170 / 0.18);
+  --accent: #5b5cf0;
+  --accent-2: #8b5cf6;
+
+  /* Kartu kaca */
+  --card-bg: rgb(255 255 255 / 0.52);
+  --card-rim: rgb(255 255 255 / 0.7);
+  --card-highlight: rgb(255 255 255 / 0.95);
+  --card-shadow: 0 1px 2px rgb(70 80 170 / 0.05), 0 14px 36px -16px rgb(70 80 170 / 0.28);
+
+  /* Latar mesh */
+  --mesh-1: #c9c6ff;
+  --mesh-2: #b9dcff;
+  --mesh-3: #f4c9ee;
+  --mesh-4: #d9ccff;
+  --mesh-opacity: 0.9;
+
+  /* Warna modul — mengikuti warna sistem iOS */
+  --c-finance: #34c759;
+  --c-tasks: #007aff;
+  --c-calendar: #ff3b30;
+  --c-journal: #ff9500;
+  --c-gallery: #ff2d55;
+  --c-goals: #5856d6;
+  --c-teal: #30b0c7;
+  --c-yellow: #ffcc00;
+  --c-purple: #af52de;
+  --c-grades: #32ade6;
+
+  /* Liquid glass */
+  --glass-bg: rgb(255 255 255 / 0.48);
+  --glass-bg-strong: rgb(250 250 255 / 0.7);
+  --glass-rim: rgb(255 255 255 / 0.95);
+  --glass-rim-soft: rgb(255 255 255 / 0.25);
+  --glass-edge: rgb(70 80 170 / 0.08);
+  --glass-shadow: 0 1px 1px rgb(70 80 170 / 0.05), 0 8px 24px -6px rgb(70 80 170 / 0.14), 0 24px 64px -24px rgb(70 80 170 / 0.2);
+
+  --aurora-opacity: 0.55;
+
+  /* Data viz — palet tervalidasi (CVD-safe), lihat komentar di config/categories.ts */
+  --viz-income: #00a39a;
+  --viz-expense: #ff5a5f;
+  --viz-1: #2a78d6;
+  --viz-2: #eb6834;
+  --viz-3: #1baf7a;
+  --viz-4: #eda100;
+  --viz-5: #e87ba4;
+  --viz-6: #008300;
+  --viz-7: #6250d6;
+  --viz-8: #e34948;
+  --viz-other: #a1a1a6;
+
+  /* Suasana hati: diverging merah ↔ biru (aman buta warna), abu netral di tengah.
+     Tiap lengan lolos validasi ordinal; ikon + label selalu menyertai warna. */
+  --mood-awful: #d4372f;
+  --mood-bad: #ec8577;
+  --mood-okay: #c9c8c4;
+  --mood-good: #6da7ec;
+  --mood-great: #256abf;
+}
+
+.dark {
+  --canvas: #090b1c;
+  --surface: rgb(36 40 78 / 0.72);
+  --surface-2: rgb(36 40 78 / 0.5);
+  --ink: #eef0ff;
+  --ink-2: #c9cbe8;
+  --muted: #9094bf;
+  --subtle: #5e628c;
+  --line: rgb(170 180 255 / 0.1);
+  --line-strong: rgb(170 180 255 / 0.18);
+  --accent: #7b7cff;
+  --accent-2: #a78bfa;
+
+  --card-bg: rgb(30 34 70 / 0.48);
+  --card-rim: rgb(200 205 255 / 0.1);
+  --card-highlight: rgb(255 255 255 / 0.14);
+  --card-shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -16px rgb(0 0 0 / 0.7);
+
+  --mesh-1: #3b2f9e;
+  --mesh-2: #123e7a;
+  --mesh-3: #6a1f6e;
+  --mesh-4: #2b1f6b;
+  --mesh-opacity: 0.75;
+
+  --c-finance: #30d158;
+  --c-tasks: #0a84ff;
+  --c-calendar: #ff453a;
+  --c-journal: #ff9f0a;
+  --c-gallery: #ff375f;
+  --c-goals: #5e5ce6;
+  --c-teal: #40c8e0;
+  --c-yellow: #ffd60a;
+  --c-purple: #bf5af2;
+  --c-grades: #64d2ff;
+
+  --glass-bg: rgb(34 38 74 / 0.42);
+  --glass-bg-strong: rgb(22 25 54 / 0.72);
+  --glass-rim: rgb(255 255 255 / 0.32);
+  --glass-rim-soft: rgb(255 255 255 / 0.06);
+  --glass-edge: rgb(255 255 255 / 0.06);
+  --glass-shadow: 0 1px 1px rgb(0 0 0 / 0.3), 0 8px 24px -6px rgb(0 0 0 / 0.5), 0 24px 64px -24px rgb(0 0 0 / 0.6);
+
+  --aurora-opacity: 0.4;
+
+  --viz-income: #00a39a;
+  --viz-expense: #e5484d;
+  --viz-1: #3987e5;
+  --viz-2: #d95926;
+  --viz-3: #199e70;
+  --viz-4: #c98500;
+  --viz-5: #d55181;
+  --viz-6: #008300;
+  --viz-7: #9085e9;
+  --viz-8: #e66767;
+  --viz-other: #6e6e73;
+
+  /* Di gelap, makin ekstrem makin terang */
+  --mood-awful: #ef7f72;
+  --mood-bad: #a9332c;
+  --mood-okay: #4a4a47;
+  --mood-good: #2f6fc4;
+  --mood-great: #86b6ef;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+
+  --color-finance: var(--c-finance);
+  --color-tasks: var(--c-tasks);
+  --color-calendar: var(--c-calendar);
+  --color-journal: var(--c-journal);
+  --color-gallery: var(--c-gallery);
+  --color-goals: var(--c-goals);
+  --color-teal: var(--c-teal);
+  --color-yellow: var(--c-yellow);
+  --color-purple: var(--c-purple);
+  --color-grades: var(--c-grades);
+  --color-income: var(--viz-income);
+  --color-expense: var(--viz-expense);
+}
+
+@theme {
+  --ease-apple: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --animate-aurora-1: aurora-1 22s ease-in-out infinite alternate;
+  --animate-aurora-2: aurora-2 28s ease-in-out infinite alternate;
+  --animate-aurora-3: aurora-3 34s ease-in-out infinite alternate;
+  --animate-shimmer: shimmer 8s linear infinite;
+
+  @keyframes aurora-1 {
+    0% { transform: translate3d(0, 0, 0) scale(1); border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
+    50% { transform: translate3d(12%, 8%, 0) scale(1.15); border-radius: 70% 30% 46% 54% / 30% 39% 61% 70%; }
+    100% { transform: translate3d(-6%, 14%, 0) scale(0.95); border-radius: 30% 70% 38% 62% / 62% 38% 62% 38%; }
+  }
+  @keyframes aurora-2 {
+    0% { transform: translate3d(0, 0, 0) scale(1.1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { transform: translate3d(-14%, 10%, 0) scale(0.9); border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    100% { transform: translate3d(8%, -10%, 0) scale(1.2); border-radius: 45% 55% 60% 40% / 40% 70% 30% 60%; }
+  }
+  @keyframes aurora-3 {
+    0% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+    100% { transform: translate3d(10%, 12%, 0) scale(1.25) rotate(40deg); border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+  }
+  @keyframes shimmer {
+    from { background-position: 0% 50%; }
+    to { background-position: 200% 50%; }
+  }
+}
+
+/* ─── Base ──────────────────────────────────────────────── */
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--canvas);
+    color: var(--ink);
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+/* ─── Liquid glass ──────────────────────────────────────── */
+
+@utility glass {
+  position: relative;
+  isolation: isolate;
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    inset 0 0 0 1px var(--glass-edge),
+    var(--glass-shadow);
+
+  /* Rim light: tepi terang di kiri-atas & kanan-bawah seperti kaca sungguhan */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      var(--glass-rim) 0%,
+      var(--glass-rim-soft) 28%,
+      transparent 50%,
+      var(--glass-rim-soft) 72%,
+      var(--glass-rim) 100%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* Kartu kaca: latar tembus pandang + blur, tepi putih tipis & sorot atas, bayangan lembut.
+   Disusun lewat variabel shadow Tailwind sehingga tetap menyatu dengan hover:shadow-* dan ring fokus. */
+@utility glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(22px) saturate(170%);
+  --tw-inset-shadow: inset 0 1px 0 var(--card-highlight);
+  --tw-inset-ring-shadow: inset 0 0 0 1px var(--card-rim);
+  --tw-shadow: var(--card-shadow);
+  box-shadow:
+    var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
+}
+
+@utility glass-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(40px) saturate(200%);
+}
+
+/* Refraksi cair — hanya aktif di browser Chromium (lihat LiquidGlassFilter) */
+@utility glass-refract {
+  :root[data-refract] & {
+    backdrop-filter: blur(14px) url(#liquid-glass) saturate(180%) brightness(1.04);
+  }
+}
+
+/* ─── Helpers ───────────────────────────────────────────── */
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility text-gradient-life {
+  background-image: linear-gradient(
+    100deg,
+    var(--c-goals) 0%,
+    var(--c-tasks) 20%,
+    var(--c-teal) 35%,
+    var(--c-finance) 50%,
+    var(--c-journal) 68%,
+    var(--c-gallery) 84%,
+    var(--c-goals) 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility noise {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ─── Lenis smooth scroll ───────────────────────────────── */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ─── View transitions (navigasi antar halaman) ─────────── */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+::view-transition-old(root) {
+  animation-name: vt-out;
+}
+::view-transition-new(root) {
+  animation-name: vt-in;
+}
+::view-transition-group(.morph) {
+  animation-duration: 560ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+::view-transition-image-pair(.morph) {
+  animation-name: vt-via-blur;
+}
+
+@keyframes vt-out {
+  to { opacity: 0; filter: blur(6px); transform: scale(0.985); }
+}
+@keyframes vt-in {
+  from { opacity: 0; filter: blur(6px); transform: scale(1.015); }
+}
+@keyframes vt-via-blur {
+  35% { filter: blur(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after,
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Transisi ganti tema: lingkaran meluas dari tombol ─── */
+
+:root[data-theme-transition]::view-transition-old(root) {
+  animation: none;
+  z-index: 0;
+}
+:root[data-theme-transition]::view-transition-new(root) {
+  z-index: 1;
+  animation: theme-reveal 700ms cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0px at var(--reveal-x, 50%) var(--reveal-y, 0%));
+  }
+  to {
+    clip-path: circle(150vmax at var(--reveal-x, 50%) var(--reveal-y, 0%));
+  }
+}
+
+/* ─── Isi jurnal (editor Tiptap) ─── */
+
+.journal-prose {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink);
+  outline: none;
+  min-height: 40vh;
+  caret-color: var(--c-journal);
+}
+.journal-prose > * + * {
+  margin-top: 0.85em;
+}
+.journal-prose h2 {
+  font-size: 1.45em;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-top: 1.6em;
+}
+.journal-prose h3 {
+  font-size: 1.15em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: 1.4em;
+}
+.journal-prose strong {
+  font-weight: 650;
+}
+.journal-prose ul,
+.journal-prose ol {
+  padding-left: 1.4em;
+}
+.journal-prose ul {
+  list-style: disc;
+}
+.journal-prose ol {
+  list-style: decimal;
+}
+.journal-prose li::marker {
+  color: var(--c-journal);
+}
+.journal-prose li > p {
+  margin: 0.15em 0;
+}
+.journal-prose blockquote {
+  border-left: 3px solid var(--c-journal);
+  padding: 0.1em 0 0.1em 1em;
+  color: var(--ink-2);
+  font-style: italic;
+}
+.journal-prose hr {
+  border: none;
+  height: 1px;
+  background: var(--line-strong);
+  margin: 2em 0;
+}
+.journal-prose code {
+  font-size: 0.88em;
+  padding: 0.15em 0.4em;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--ink) 7%, transparent);
+}
+.journal-prose ul[data-type="taskList"] {
+  list-style: none;
+  padding-left: 0.2em;
+}
+.journal-prose ul[data-type="taskList"] li {
+  display: flex;
+  gap: 0.6em;
+  align-items: flex-start;
+}
+.journal-prose ul[data-type="taskList"] li > label {
+  margin-top: 0.42em;
+  flex-shrink: 0;
+}
+.journal-prose ul[data-type="taskList"] li > div {
+  flex: 1;
+}
+.journal-prose ul[data-type="taskList"] input[type="checkbox"] {
+  width: 1.05em;
+  height: 1.05em;
+  accent-color: var(--c-journal);
+}
+.journal-prose ul[data-type="taskList"] li[data-checked="true"] > div {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+/* Placeholder ala Apple Notes */
+.journal-prose p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: var(--subtle);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
